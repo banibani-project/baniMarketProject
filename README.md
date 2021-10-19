@@ -9,7 +9,7 @@
 - 목표        :  당근클론 코딩 진행 후에 고도화작업까지
 - 진행일자 : 2021년 10월 10일   ~   2021년 12월 25일 (예정)
 - 방식(백엔드) : JDK8 / java / SpringBoot / OJDBC8 / Oralce11g
-- 방식(프론트) : HTML5 / CSS / JS / Jquery 
+- 방식(프론트) : HTML5 / CSS / JS / Jquery  
                  
 
 
