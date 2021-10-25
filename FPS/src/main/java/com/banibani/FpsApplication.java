@@ -8,6 +8,7 @@ public class FpsApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(FpsApplication.class, args);
+
 	}
 
 }
