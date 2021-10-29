@@ -7,13 +7,13 @@
 
     <title>바니마켓 로그인</title>
 
-	<link rel="shortcut icon" type="../static/image/x-icon" href="../static/images/favicon.ico">
+	<link rel="shortcut icon" type="../static/image/x-icon" href="img/favicon.ico">
     <link rel="stylesheet" href="../static/css/login.css">
 </head>
 
 <body>
 	<div id="login-wrap">
-		<h1><a href="main.html"><img src="../static/images/bani_logo.png"></a></h1>
+		<h1><a href="main.html"><img src="../static/img/bani_logo.png"></a></h1>
 		<div id="login-box">
 			<h2>LOGIN</h2>
 			<form action="" method="post">
@@ -22,8 +22,8 @@
 				<input type="checkbox" id="login-keep" value="Y"> <label for="login-keep">로그인 유지</laber>
 				<input type="submit" id="login-bt" class="login-design" value="로그인">
 
-				<a href="#" class="login-sns"><img src="../static/images/login_kakao.png">카카오톡으로 로그인</a>
-				<a href="#" class="login-sns"><img src="../static/images/login_naver.png">네이버로 로그인</a>
+				<a href="#" class="login-sns"><img src="../static/img/login_kakao.png">카카오톡으로 로그인</a>
+				<a href="#" class="login-sns"><img src="../static/img/login_naver.png">네이버로 로그인</a>
 			</form>
 		</div>
 	</div>
