@@ -7,8 +7,8 @@ import com.banibani.user.vo.UserVo;
 public interface UserSerivce {
 
 	/**
-	 *	ÀÛ¼ºÀÚ : JJH
-	 *  ÀÛ¼º ÆäÀÌÁö : openUserCreatePage.jsp
+	 * ì‘ì„±ì : JJH
+	 * ë°”ë¼ë³´ëŠ” ë°ì´í„° : openUserCreatePage.jsp
 	*/
 	ModelMap UserIdVlaueCheck(UserVo userVo);
 

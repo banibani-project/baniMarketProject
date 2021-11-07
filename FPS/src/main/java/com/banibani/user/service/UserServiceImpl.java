@@ -10,10 +10,10 @@ public class UserServiceImpl implements UserSerivce {
 	UserDao userDao;
 
 	/**
-	 *  ÀÛ¼ºÀÏ : 2021 - 10 - 31
-	 *	ÀÛ¼ºÀÚ : JJH
-	 *  ÀÛ¼º ÆäÀÌÁö : openUserCreatePage.jsp
-	 *  ÀÛ¼º ÆÄ¶ó¹ÌÅÍ : [ userId : value, userPassword : vale, userName : value, userPhone : value, userAge : value, userAddress : value, userTypeCode : value ]
+	 * ì‘ì„±ì¼ : 2021 - 10 - 31
+	 * ì‘ì„±ì : JJH
+	 * ë°”ë¼ë³´ëŠ” ë°ì´í„° : openUserCreatePage.jsp
+	 * íŒŒë¼ë¯¸í„° ë°ì´í„° : [ userId : value, userPassword : vale, userName : value, userPhone : value, userAge : value, userAddress : value, userTypeCode : value ]
 	 */
 	public ModelMap UserIdVlaueCheck(UserVo userVo) {
 
