@@ -1,6 +1,8 @@
 package com.banibani.user.controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -9,10 +11,16 @@ import com.banibani.user.service.UserSerivce;
 import com.banibani.user.vo.UserVo;
 
 
-@RequestMapping(value="/user")
+@Controller
+@RequestMapping("/user")
 public class UserController {
 
 	UserSerivce userService;
+	
+	@GetMapping("/userList")
+    public String postsSave() {
+        return "/user/userList";
+    }
 
 	@RequestMapping(value="/openUserCreate.do")
 	public String openUserCreate() {
