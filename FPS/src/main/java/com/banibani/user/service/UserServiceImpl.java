@@ -17,7 +17,7 @@ public class UserServiceImpl implements UserSerivce {
 	 */
 	public ModelMap UserIdVlaueCheck(UserVo userVo) {
 
-		userDao.UserIdVlaueCheck(userVo);
+		//userDao.UserIdVlaueCheck(userVo);
 
 		return null;
 	}
