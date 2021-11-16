@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html lang="kr">
 <head>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,9 +12,20 @@
 
 	<link rel="shortcut icon" type="image/x-icon" href="../static/images/favicon.ico">
     <link rel="stylesheet" href="../static/css/login.css">
+
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript">
+function fnLoginCheck() {
+	$("#form1").submit();
+}
+</script>
+
 </head>
 
 <body>
+
 	<div id="login-wrap">
 		<h1><a href="main.html"><img src="../static/images/bani_logo.png"></a></h1>
 		<div id="login-box">
@@ -29,5 +41,12 @@
 			</form>
 		</div>
 	</div>
+
+	[프론트]로그인페이지입니다.
+	<form action="/login/loginCheck" method="get" id="form1">
+		<input type="text" name="id">
+		<input type="button" onclick="fnLoginCheck()">
+	</form>
+
 </body>
 </html>
