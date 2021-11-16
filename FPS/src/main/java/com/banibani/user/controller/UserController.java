@@ -1,14 +1,26 @@
 package com.banibani.user.controller;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.banibani.user.service.UserService;
+import com.banibani.user.service.UserSerivce;
+import com.banibani.user.vo.UserVo;
 
 
-@RequestMapping(value="/user")
+@Controller
+@RequestMapping("/user")
 public class UserController {
 
-	UserService userService;
+	UserSerivce userService;
+	
+	@GetMapping("/userList")
+    public String postsSave() {
+        return "/user/userList";
+    }
 
 	@RequestMapping(value="/openUserCreate.do")
 	public String openUserCreate() {
@@ -16,14 +28,19 @@ public class UserController {
 		return "";
 	}
 
-	/*
+	/**
+	 * 작성일 : 2021 - 10 - 31
+	 * 작성자 : JJH
+	 * 바라보는 데이터 : openUserCreatePage.jsp
+	 * 파라미터 데이터 : [ userId : value, userPassword : vale, userName : value, userPhone : value, userAge : value, userAddress : value, userTypeCode : value ]
+	 */
 	@ResponseBody
-	@RequestMapping(value="/open")
-	public ModelMap (@RequestBody request, DefaultVo defaultVo) {
+	@RequestMapping(value="/UserIdVlaueCheck")
+	public ModelMap UserIdVlaueCheck (@RequestBody UserVo userVo) {
 
-		return userService.(defaultVo);
+		return userService.UserIdVlaueCheck(userVo);
 
 	}
-	*/
+
 
 }
