@@ -171,3 +171,75 @@ a { text-decoration: none; }
 }
 
 /* 중고거래 인기매물 끝 */
+
+/* footer 시작 */
+#footer{
+    color: #fff;
+    background-color: #495057;
+    padding: 8rem 0;
+}
+.footer-container{
+    width: 1024px;
+    margin: 0 auto;
+}
+.footer-top{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+}
+.footer-logo{
+    width: 130px;
+    height: 45px;
+    background-image: url(../images/logo.png);
+    background-size: 130px 45px;
+    background-repeat: no-repeat;
+    margin-left: 10px;
+}
+.footer-list-item{
+    display: block;
+    margin-bottom: 1.6rem;
+}
+.link-highlight{
+    color: #fff;
+    font-weight: 700;
+}
+.link-highlight:hover{
+    text-decoration: underline;
+}
+.footer-bottom{
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 3.2rem;
+}
+.footer-copyright{
+    color: #adb5bd;
+    margin-top: 3.2rem;
+}
+.copyright-list{
+    margin-bottom: 0.4rem;
+    list-style-type: none;
+}
+.copyright-list-item{
+    display: inline-block;
+    font-size: 0.8rem;
+    margin: 0 0.8rem 0 0;
+}
+.copyright-list-item > a{
+    color: #868e96;
+    margin-left: 0.8rem;
+}
+.copyright-list-item > a:hover{
+    text-decoration: underline;
+}
+.social{
+    margin: 3.2rem 0 3.2rem;
+}
+.social-list-item{
+    display: inline-block;
+    margin-right: 2.4rem;
+    box-sizing: border-box;
+}
+.social-link{
+    display: block;
+}
+
+/* footer 끝 */
