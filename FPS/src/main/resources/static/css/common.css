@@ -1,1 +1,173 @@
-.div {border: 20px;}
+/* Reset */
+*, html, body { margin: 0; padding: 0; }
+li { list-style: none; }
+a { text-decoration: none; }
+
+
+/* header 시작 */
+#fixed-bar{
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+    background-color: #f3f3f3;
+}
+
+#fixed-bar-wrap{
+    width: 1024px;
+    margin: 0 auto;
+    padding: 16px 0;
+    overflow: hidden;
+}
+.sr-only{
+    position: absolute;
+    width: 0;
+    overflow: hidden;
+}
+.fixed-bar-logo{
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.5;
+}
+.fixed-logo{
+    float: left;
+    width: 120px;
+    vertical-align: text-bottom;
+    margin-left: 10px;
+    margin-top: 3px;
+}
+
+.fiexd-bar-search{
+    float: left;
+    height: 40px;
+    padding: 5px 1.6rem;
+    box-sizing: border-box;
+}
+.search-input-wrap{
+    display: flex;
+    justify-content: space-between;
+}
+.header-search-input{
+    width: 360px;
+    height: 40px;
+    display: block;
+    border: 1.5px solid rgba(200, 200, 200, 0.7);
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: inherit;
+    position: absolute;
+    text-indent: 10px;
+}
+.header-search-input::placeholder{
+    color:rgba(200, 200, 200, 0.7);
+}
+.header-search-button{
+   background: none;
+   cursor: pointer;
+   outline: inherit;
+   border-radius: 6px;
+   margin-left: 330px;
+}
+.header-search-icon{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    padding: 10px 0;
+}
+.fixed-bar-menu{
+    overflow: hidden;
+    float:right;
+    color: #4D5159;
+}
+.fixed-download-wrap{
+    float: right;
+}
+
+.fixed-label{
+    display: inline-block;
+    width: 120px;
+    height: 50px;
+    line-height: 50px;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.fiexd-menu-ul{
+    display: none;
+}
+
+/* header 끝 */
+
+/* 중고거래 인기 매물 시작 */
+.home-main-section{
+    padding: 6rem 0;
+    margin: 0 auto;
+}
+.home-hot-content{
+    text-align: center;
+    width: 1024px;
+    margin: 6rem auto 12rem auto;
+}
+.home-main-title{
+    margin-bottom: 5rem;
+    height: 54px;
+    line-height: 54px;
+    font-size: 2rem;
+}
+.cards-wrap{
+    width: 100%;
+    display: flex; 
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.card-top{
+    width: calc(25% - 50px);
+    margin: 0 44px 56px 0;
+    display: inline-block;
+}
+.card-link{
+    text-decoration: none;
+    color: #212529;
+}
+.card-photo{
+    overflow: hidden;
+    border-radius: 12px;
+}
+.card-photo > img{
+    width: 100%;
+    background-color: #f3f3f3;
+}
+.card-desc{
+    text-align: left;
+    margin-top: 8px;
+}
+.card-title{
+    font-size: 16px;
+    letter-spacing: -0.02px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    line-height: 1.5;
+    font-weight: normal;
+    margin-bottom: 4px;
+}
+.card-price{
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 1.5;
+    margin-bottom: 4px;
+}
+.card-region-name{
+    font-size: 15px;
+    margin-bottom: 4px;
+}
+.card-counts{
+    text-align: left;
+    color:#909090;
+}
+.text-center > a{
+    color: #212529;
+    text-decoration: underline;
+}
+
+/* 중고거래 인기매물 끝 */
