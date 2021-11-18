@@ -1,0 +1,16 @@
+2021-11-07 17:12:37,037 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2021-11-07 17:29:14,358 [Worker-31: Remove Repositories] WARN  org.eclipse.jgit.lib.Repository - close() called when useCnt is already zero for Repository[C:\Users\¹ÚÀçÈñ\git\baniMarketProject2\baniMarketProject\.git]
+2021-11-07 17:33:43,462 [Worker-14: Remove Repositories] WARN  org.eclipse.jgit.lib.Repository - close() called when useCnt is already zero for Repository[C:\Users\¹ÚÀçÈñ\git\baniMarketProject_test\baniMarketProject\.git]
+2021-11-07 17:38:15,478 [Worker-29: Git Repository Change Scanner] WARN  org.eclipse.jgit.lib.Repository - close() called when useCnt is already zero for Repository[C:\Users\¹ÚÀçÈñ\git\baniMarketProject2\baniMarketProject\.git]
+2021-11-07 17:40:12,660 [Worker-34: Remove Repositories] WARN  org.eclipse.jgit.lib.Repository - close() called when useCnt is already zero for Repository[C:\Users\¹ÚÀçÈñ\git\baniMarketProject2\baniMarketProject\.git]
+2021-11-07 17:45:54,077 [Worker-34: Cloning from https://github.com/banibani-project/baniMarketProject.git] WARN  org.eclipse.jgit.lib.Repository - close() called when useCnt is already zero for Repository[C:\Users\¹ÚÀçÈñ\git\baniMarketProject2\baniMarketProject\.git]
+2021-11-07 17:48:31,399 [Worker-40: Remove Repositories] WARN  org.eclipse.jgit.lib.Repository - close() called when useCnt is already zero for Repository[C:\Users\¹ÚÀçÈñ\git\baniMarketProject2\3333\.git]
+2021-11-07 17:55:03,643 [Worker-41: Remove Repositories] WARN  org.eclipse.jgit.lib.Repository - close() called when useCnt is already zero for Repository[C:\Users\¹ÚÀçÈñ\git\baniMarketProject2\44444\.git]
+2021-11-07 18:06:14,996 [Worker-19: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2021-11-07 18:10:34,883 [Worker-3: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2021-11-07 19:13:04,420 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2021-11-07 19:14:15,193 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2021-11-12 16:48:43,648 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2021-11-12 16:59:38,607 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2021-11-15 19:53:39,386 [Worker-3: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2021-11-16 22:30:09,882 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
