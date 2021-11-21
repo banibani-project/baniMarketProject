@@ -16,11 +16,19 @@ public class LoginController {
 	@Autowired
 	LoginService loginService;
 	
+	//21.11.21 회원 가입 페이지
+	@GetMapping("/joinPage")
+    public String joinPage() {
+        return "/login/joinPage";
+    }
+	
+	//21.11.21 로그인 페이지
 	@GetMapping("/loginPage")
     public String loginPage() {
         return "/login/loginPage";
     }
 	
+	//21.11.21 회원 여부 확인
 	@GetMapping("/loginCheck")
 	public String loginCheck() {
 		List<LoginVo> testList = loginService.selectTest();
