@@ -16,7 +16,6 @@ public class FpsApplication {
         return "Hello World!";
     }
 
-
     @RequestMapping(value="/main.do")
     @ResponseBody
     public String openMain() {
