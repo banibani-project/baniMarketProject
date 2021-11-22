@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>바니마켓 로그인</title>
+
+	<link rel="shortcut icon" type="image/x-icon" href="../static/images/favicon.ico">
+    <link rel="stylesheet" href="../static/css/sign.css">
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<script>
+		var id_empty;
+		var pw_empty;
+
+		function TimeoutId() { $('#ex_id').text(''); }
+		function TimeoutPw() { $('#ex_pw').text(''); }
+
+		function id_chk() { // 일단은 공백일 땐 가능한 아이디, 값이 있으면 존재하는 아이디로 설정했습니다
+			for (var i = 0; i < 3; i++) {
+			  clearTimeout(i);
+			}
+
+			if (document.getElementById('sign-id').value == "") {
+				$('#ex_id').text('사용 가능한 아이디입니다.')
+				$('#ex_id').removeClass('error');
+				$('#ex_id').addClass('correct');
+			}
+			else {
+				$('#ex_id').text('이미 존재하는 아이디입니다.')
+				$('#ex_id').addClass('error');
+				$('#ex_id').removeClass('correct');
+			}
+
+			var id_empty = setTimeout(TimeoutId, 3000);
+		}
+
+		function pw_chk() {
+
+			pw_first = document.getElementById('sign-pw').value;
+			pw_sec = document.getElementById('sign-pw-chk').value;
+
+			if (pw_first != "" && pw_first == pw_sec) {  // 비밀번호란이 공백이 아니고 비밀번호값 = 비밀번호체크값일때
+				$('#ex_pw').text('사용 가능한 비밀번호입니다.')
+				$('#ex_pw').removeClass('error');
+				$('#ex_pw').addClass('correct');
+			}
+			else if (pw_first != "" && pw_first != pw_sec) { // 비밀번호란이 공백이 아니고 비밀번호값 != 비밀번호체크값일때
+				$('#ex_pw').text('서로 유효하지 않는 비밀번호입니다.')
+				$('#ex_pw').addClass('error');
+				$('#ex_pw').removeClass('correct');
+			}
+			else if (pw_first == "") { // 비밀번호란이 공백일때
+				$('#ex_pw').text('비밀번호란이 공백입니다.')
+				$('#ex_pw').addClass('error');
+				$('#ex_pw').removeClass('correct');
+			}
+
+			for (var i = 0; i<100; i++) {clearTimeout(pw_empty);}
+			
+			pw_empty = setTimeout(TimeoutPw, 3000); // 3초 후에 글씨 공백
+		}
+		
+		function maxLengthCheck(object, maxnum){
+			if (object.value.length > maxnum){
+				object.value = object.value.slice(0, maxnum);
+			}    
+		}
+	</script>
+</head>
+
+<body>
+	<div id="sign-wrap">
+		<h1><a href="main.html"><img src="../static/images/bani_logo.png"></a></h1>
+		<div id="sign-box">
+			<h2>회원가입</h2>
+			<form action="" method="post">
+				<input type="text" name="id" id="sign-id" class="sign-design" placeholder="아이디" value="">
+				<input type="button" name="id_check" id="sign-chk" class="sign-design" value="아이디체크" onclick="id_chk();">
+				<p id="ex_id" class="error"></p>
+
+				<input type="password" name="pw" id="sign-pw" class="sign-design" placeholder="비밀번호" value="">
+				<input type="password" name="pw_check" id="sign-pw-chk" class="sign-design" placeholder="비밀번호 체크" value="" onkeyup="pw_chk();">
+				<p id="ex_pw" class="error"></p>
+
+				<h3>전화번호</h3>
+				<div class="phone-wrap">
+					<input type="number" name="phone1" class="sign-design sign-phone-first" value="010" oninput="maxLengthCheck(this, 3);">
+					<span class="phone-mid">-</span>
+					<input type="number" name="phone2" class="sign-design sign-phone" max="9999" value="" oninput="maxLengthCheck(this, 4);">
+					<span class="phone-mid">-</span>
+					<input type="number" name="phone3" class="sign-design sign-phone" max="9999" value="" oninput="maxLengthCheck(this, 4);">
+				</div>
+
+				<h3>생년월일</h3>
+				<div class="birth-wrap">
+					<input type="number" name="year" min="1901" max="2021" class="sign-design sign-year" value="" oninput="maxLengthCheck(this, 4);">
+					<span class="birth-mid">년</span>
+					<input type="number" name="month" class="sign-design sign-month" min="1" max="12" value="" oninput="maxLengthCheck(this, 2);">
+					<span class="birth-mid">월</span>
+					<input type="number" name="date" class="sign-design sign-date" min="1" max="31" value="" oninput="maxLengthCheck(this, 2);">
+					<span class="birth-mid">일</span>
+				</div>
+
+				<h3>주소</h3>
+				<input type="text" name="addr1" id="sign-addr1" class="sign-design" placeholder="우편번호" value="">
+				<input type="button" name="addr_check" id="sign-addr-find" class="sign-design" value="주소찾기">
+				<input type="text" name="addr2" id="sign-addr2" class="sign-design" placeholder="주소" value="">
+				<input type="text" name="addr3" id="sign-addr3" class="sign-design" placeholder="상세주소" value="">
+
+				<input type="submit" id="sign-bt" class="sign-design" value="로그인">
+			</form>
+		</div>
+	</div>
+</body>
+</html>

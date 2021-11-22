@@ -1,0 +1,124 @@
+* {
+	magin: 0;
+	padding: 0;
+}
+
+ul, li , ol, a {
+	text-decoration: none;
+	list-style: none;
+}
+
+html {
+	width: 100vw;
+	min-height: 100vh;
+}
+
+#sign-wrap {
+	margin: 50px auto 0;
+	width: 600px;
+}
+
+#sign-wrap>h1 {text-align: center; margin-bottom: 10px;}
+#sign-wrap>h1 img {width: 300px;}
+
+#sign-box {
+	border: 1px solid #fea6b1;
+	border-radius: 10px;
+	padding: 0 49px 30px;
+}
+#sign-box>h2 {
+	text-align: center;
+	font-size: 36px;
+}
+
+#sign-box input.sign-design {
+	display: inline-block;
+	border: 1px solid #ccc;
+	margin: 5px 0;
+	height: 40px;
+	line-height: 40px;
+	font-size: 16px;
+	text-indent: 10px;
+	box-sizing: border-box;
+}
+
+#sign-id, #sign-addr1 {width: 250px;}
+#sign-chk, #sign-addr-find {
+	width: 120px;
+	text-indent: 0 !important;
+	background: #fea6b1;
+	color: #fff;
+	border: 0 !important;
+	cursor: pointer;
+}
+#sign-pw, #sign-pw-chk,
+#sign-addr2, #sign-addr3 {width: 500px;}
+
+#sign-box #sign-keep {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	border: 1px solid #ccc;
+	border-radius: 0;
+    vertical-align: sub;
+    margin: 10px 0 20px;
+	cursor: pointer;
+}
+
+#ex_id, #ex_pw {
+	margin: 0;
+}
+
+.error {color: #f00;}
+.correct {color: #090;}
+
+h3 {
+	margin: 20px 0 0 0;
+	font-size: 20px;
+}
+
+.phone-wrap, .birth-wrap {overflow:hidden;}
+
+.phone-wrap input,
+.phone-wrap span,
+.birth-wrap input,
+.birth-wrap span {float: left;}
+
+.sign-phone-first,
+.sign-phone {width: 150px;}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.phone-mid {
+	display: inline-block;
+	width: 25px;
+	line-height: 50px;
+	text-align: center;
+}
+
+.sign-year {width: 150px;}
+.sign-month, .sign-date {width: 100px;}
+
+.birth-mid {
+	display: inline-block;
+	width: 45px;
+	line-height: 50px;
+	padding-left: 5px;
+}
+
+#sign-box #sign-bt {
+	width: 500px;
+	height: 50px;
+	line-height: 50px;
+	font-size: 20px;
+	background: #fea6b1;
+	color: #fff;
+	border: 0px;
+	font-weight: bold;
+	cursor: pointer;
+	margin: 30px 0 10px;
+}
