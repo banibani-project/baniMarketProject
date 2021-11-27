@@ -170,6 +170,8 @@
 			<div class="home-near-content">
 				<h1 class="home-main-title">우리동네매물</h1>
 				<h3 class="home-addr"></h3>
+				<div id="msg"></div>
+				<div id="map_canvas"></div>
 				<div class="cards-wrap">
 					<article class="card-top">
 						<a href="#" class="card-link">

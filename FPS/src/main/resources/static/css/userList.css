@@ -27,7 +27,7 @@
     display: flex; 
     justify-content: space-around;
     flex-wrap: wrap;
-    margin-top: 5rem;
+    margin-top: 2rem;
 }
 .card-top{
     width: calc(25% - 50px);
