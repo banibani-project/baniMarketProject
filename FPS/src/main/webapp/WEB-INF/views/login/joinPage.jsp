@@ -22,6 +22,7 @@
 		<div id="sign-box">
 			<h2>회원가입</h2>
 			<form action="" method="post">
+				<input type="text" name="name" id="sign-name" class="sign-design" placeholder="이름" value=""><br>
 				<input type="text" name="id" id="sign-id" class="sign-design" placeholder="아이디" value="">
 				<input type="button" name="id_check" id="sign-chk" class="sign-design" value="아이디체크" onclick="id_chk();">
 				<p id="ex_id" class="error"></p>

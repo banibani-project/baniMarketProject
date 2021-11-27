@@ -27,142 +27,284 @@
 		<div class="home-banner-wrap">
 			<img src="../static/images/bani_banner.jpg">
 		</div>
-        <div class="home-hot-content">
-            <h1 class="home-main-title">중고거래 인기매물</h1>
-            <div class="cards-wrap">
-                <article class="card-top">
-                    <a href="#" class="card-link">
-                        <div class="card-photo">
-                            <img src="../static/images/code.png" alt="">
-                        </div>
-                        <div class="card-desc">
-                            <h2 class="card-title">#</h2>
-                            <div class="card-price">#</div>
-                            <div class="card-region-name">#</div>
-                            <div class="card-counts">
-                                <span>#</span>
-                                <span>#</span>
-                            </div>
-                        </div>
-                    </a>
-                </article>
-                <article class="card-top">
-                    <a href="#" class="card-link">
-                        <div class="card-photo">
-                            <img src="../static/images/code.png" alt="">
-                        </div>
-                        <div class="card-desc">
-                            <h2 class="card-title">#</h2>
-                            <div class="card-price">#</div>
-                            <div class="card-region-name">#</div>
-                            <div class="card-counts">
-                                <span>#</span>
-                                <span>#</span>
-                            </div>
-                        </div>
-                    </a>
-                </article>
-                <article class="card-top">
-                    <a href="#" class="card-link">
-                        <div class="card-photo">
-                            <img src="../static/images/code.png" alt="">
-                        </div>
-                        <div class="card-desc">
-                            <h2 class="card-title">#</h2>
-                            <div class="card-price">#</div>
-                            <div class="card-region-name">#</div>
-                            <div class="card-counts">
-                                <span>#</span>
-                                <span>#</span>
-                            </div>
-                        </div>
-                    </a>
-                </article>
-                <article class="card-top">
-                    <a href="#" class="card-link">
-                        <div class="card-photo">
-                            <img src="../static/images/code.png" alt="">
-                        </div>
-                        <div class="card-desc">
-                            <h2 class="card-title">#확인 테스트 123</h2>
-                            <div class="card-price">#</div>
-                            <div class="card-region-name">#</div>
-                            <div class="card-counts">
-                                <span>#</span>
-                                <span>#</span>
-                            </div>
-                        </div>
-                    </a>
-                </article>
-                <article class="card-top">
-                    <a href="#" class="card-link">
-                        <div class="card-photo">
-                            <img src="../static/images/code.png" alt="">
-                        </div>
-                        <div class="card-desc">
-                            <h2 class="card-title">#확인 테스트 123</h2>
-                            <div class="card-price">#</div>
-                            <div class="card-region-name">#</div>
-                            <div class="card-counts">
-                                <span>#</span>
-                                <span>#</span>
-                            </div>
-                        </div>
-                    </a>
-                </article>
-                <article class="card-top">
-                    <a href="#" class="card-link">
-                        <div class="card-photo">
-                            <img src="../static/images/code.png" alt="">
-                        </div>
-                        <div class="card-desc">
-                            <h2 class="card-title">#확인 테스트 123</h2>
-                            <div class="card-price">#</div>
-                            <div class="card-region-name">#</div>
-                            <div class="card-counts">
-                                <span>#</span>
-                                <span>#</span>
-                            </div>
-                        </div>
-                    </a>
-                </article>
-                <article class="card-top">
-                    <a href="#" class="card-link">
-                        <div class="card-photo">
-                            <img src="../static/images/code.png" alt="">
-                        </div>
-                        <div class="card-desc">
-                            <h2 class="card-title">#</h2>
-                            <div class="card-price">#</div>
-                            <div class="card-region-name">#</div>
-                            <div class="card-counts">
-                                <span>#</span>
-                                <span>#</span>
-                            </div>
-                        </div>
-                    </a>
-                </article>
-                <article class="card-top">
-                    <a href="#" class="card-link">
-                        <div class="card-photo">
-                            <img src="../static/images/code.png" alt="">
-                        </div>
-                        <div class="card-desc">
-                            <h2 class="card-title">#</h2>
-                            <div class="card-price">#</div>
-                            <div class="card-region-name">#</div>
-                            <div class="card-counts">
-                                <span>#</span>
-                                <span>#</span>
-                            </div>
-                        </div>
-                    </a>
-                </article>
-            </div>
-            <div class="text-center">
-                <a href="#">인기매물 더 보기</a>
-            </div>
-        </div>
+
+		<div class="section-wrap">
+			<div class="home-hot-content">
+				<h1 class="home-main-title">중고거래 인기매물</h1>
+				<div class="cards-wrap">
+					<article class="card-top">
+						<a href="#" class="card-link">
+							<div class="card-photo">
+								<img src="../static/images/code.png" alt="">
+							</div>
+							<div class="card-desc">
+								<h2 class="card-title">#</h2>
+								<div class="card-price">#</div>
+								<div class="card-region-name">#</div>
+								<div class="card-counts">
+									<span>#</span>
+									<span>#</span>
+								</div>
+							</div>
+						</a>
+					</article>
+					<article class="card-top">
+						<a href="#" class="card-link">
+							<div class="card-photo">
+								<img src="../static/images/code.png" alt="">
+							</div>
+							<div class="card-desc">
+								<h2 class="card-title">#</h2>
+								<div class="card-price">#</div>
+								<div class="card-region-name">#</div>
+								<div class="card-counts">
+									<span>#</span>
+									<span>#</span>
+								</div>
+							</div>
+						</a>
+					</article>
+					<article class="card-top">
+						<a href="#" class="card-link">
+							<div class="card-photo">
+								<img src="../static/images/code.png" alt="">
+							</div>
+							<div class="card-desc">
+								<h2 class="card-title">#</h2>
+								<div class="card-price">#</div>
+								<div class="card-region-name">#</div>
+								<div class="card-counts">
+									<span>#</span>
+									<span>#</span>
+								</div>
+							</div>
+						</a>
+					</article>
+					<article class="card-top">
+						<a href="#" class="card-link">
+							<div class="card-photo">
+								<img src="../static/images/code.png" alt="">
+							</div>
+							<div class="card-desc">
+								<h2 class="card-title">#확인 테스트 123</h2>
+								<div class="card-price">#</div>
+								<div class="card-region-name">#</div>
+								<div class="card-counts">
+									<span>#</span>
+									<span>#</span>
+								</div>
+							</div>
+						</a>
+					</article>
+					<article class="card-top">
+						<a href="#" class="card-link">
+							<div class="card-photo">
+								<img src="../static/images/code.png" alt="">
+							</div>
+							<div class="card-desc">
+								<h2 class="card-title">#확인 테스트 123</h2>
+								<div class="card-price">#</div>
+								<div class="card-region-name">#</div>
+								<div class="card-counts">
+									<span>#</span>
+									<span>#</span>
+								</div>
+							</div>
+						</a>
+					</article>
+					<article class="card-top">
+						<a href="#" class="card-link">
+							<div class="card-photo">
+								<img src="../static/images/code.png" alt="">
+							</div>
+							<div class="card-desc">
+								<h2 class="card-title">#확인 테스트 123</h2>
+								<div class="card-price">#</div>
+								<div class="card-region-name">#</div>
+								<div class="card-counts">
+									<span>#</span>
+									<span>#</span>
+								</div>
+							</div>
+						</a>
+					</article>
+					<article class="card-top">
+						<a href="#" class="card-link">
+							<div class="card-photo">
+								<img src="../static/images/code.png" alt="">
+							</div>
+							<div class="card-desc">
+								<h2 class="card-title">#</h2>
+								<div class="card-price">#</div>
+								<div class="card-region-name">#</div>
+								<div class="card-counts">
+									<span>#</span>
+									<span>#</span>
+								</div>
+							</div>
+						</a>
+					</article>
+					<article class="card-top">
+						<a href="#" class="card-link">
+							<div class="card-photo">
+								<img src="../static/images/code.png" alt="">
+							</div>
+							<div class="card-desc">
+								<h2 class="card-title">#</h2>
+								<div class="card-price">#</div>
+								<div class="card-region-name">#</div>
+								<div class="card-counts">
+									<span>#</span>
+									<span>#</span>
+								</div>
+							</div>
+						</a>
+					</article>
+				</div>
+				<div class="text-center">
+					<a href="#">인기매물 더 보기</a>
+				</div>
+			</div>
+
+			
+			<div class="home-near-content">
+				<h1 class="home-main-title">우리동네매물</h1>
+				<h3 class="home-addr"></h3>
+				<div class="cards-wrap">
+					<article class="card-top">
+						<a href="#" class="card-link">
+							<div class="card-photo">
+								<img src="../static/images/code.png" alt="">
+							</div>
+							<div class="card-desc">
+								<h2 class="card-title">#</h2>
+								<div class="card-price">#</div>
+								<div class="card-region-name">#</div>
+								<div class="card-counts">
+									<span>#</span>
+									<span>#</span>
+								</div>
+							</div>
+						</a>
+					</article>
+					<article class="card-top">
+						<a href="#" class="card-link">
+							<div class="card-photo">
+								<img src="../static/images/code.png" alt="">
+							</div>
+							<div class="card-desc">
+								<h2 class="card-title">#</h2>
+								<div class="card-price">#</div>
+								<div class="card-region-name">#</div>
+								<div class="card-counts">
+									<span>#</span>
+									<span>#</span>
+								</div>
+							</div>
+						</a>
+					</article>
+					<article class="card-top">
+						<a href="#" class="card-link">
+							<div class="card-photo">
+								<img src="../static/images/code.png" alt="">
+							</div>
+							<div class="card-desc">
+								<h2 class="card-title">#</h2>
+								<div class="card-price">#</div>
+								<div class="card-region-name">#</div>
+								<div class="card-counts">
+									<span>#</span>
+									<span>#</span>
+								</div>
+							</div>
+						</a>
+					</article>
+					<article class="card-top">
+						<a href="#" class="card-link">
+							<div class="card-photo">
+								<img src="../static/images/code.png" alt="">
+							</div>
+							<div class="card-desc">
+								<h2 class="card-title">#확인 테스트 123</h2>
+								<div class="card-price">#</div>
+								<div class="card-region-name">#</div>
+								<div class="card-counts">
+									<span>#</span>
+									<span>#</span>
+								</div>
+							</div>
+						</a>
+					</article>
+					<article class="card-top">
+						<a href="#" class="card-link">
+							<div class="card-photo">
+								<img src="../static/images/code.png" alt="">
+							</div>
+							<div class="card-desc">
+								<h2 class="card-title">#확인 테스트 123</h2>
+								<div class="card-price">#</div>
+								<div class="card-region-name">#</div>
+								<div class="card-counts">
+									<span>#</span>
+									<span>#</span>
+								</div>
+							</div>
+						</a>
+					</article>
+					<article class="card-top">
+						<a href="#" class="card-link">
+							<div class="card-photo">
+								<img src="../static/images/code.png" alt="">
+							</div>
+							<div class="card-desc">
+								<h2 class="card-title">#확인 테스트 123</h2>
+								<div class="card-price">#</div>
+								<div class="card-region-name">#</div>
+								<div class="card-counts">
+									<span>#</span>
+									<span>#</span>
+								</div>
+							</div>
+						</a>
+					</article>
+					<article class="card-top">
+						<a href="#" class="card-link">
+							<div class="card-photo">
+								<img src="../static/images/code.png" alt="">
+							</div>
+							<div class="card-desc">
+								<h2 class="card-title">#</h2>
+								<div class="card-price">#</div>
+								<div class="card-region-name">#</div>
+								<div class="card-counts">
+									<span>#</span>
+									<span>#</span>
+								</div>
+							</div>
+						</a>
+					</article>
+					<article class="card-top">
+						<a href="#" class="card-link">
+							<div class="card-photo">
+								<img src="../static/images/code.png" alt="">
+							</div>
+							<div class="card-desc">
+								<h2 class="card-title">#</h2>
+								<div class="card-price">#</div>
+								<div class="card-region-name">#</div>
+								<div class="card-counts">
+									<span>#</span>
+									<span>#</span>
+								</div>
+							</div>
+						</a>
+					</article>
+				</div>
+				<div class="text-center">
+					<a href="#">우리동네매물 더 보기</a>
+				</div>
+			</div>
+		</div>
     </section>
 
 <%@ include file="footer.jsp" %>

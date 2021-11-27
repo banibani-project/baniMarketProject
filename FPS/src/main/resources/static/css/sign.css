@@ -42,7 +42,7 @@ html {
 	box-sizing: border-box;
 }
 
-#sign-name, #sign-id, #sign-addr1 {width: 200px;}
+#sign-id, #sign-addr1 {width: 250px;}
 #sign-chk, #sign-addr-find {
 	width: 120px;
 	text-indent: 0 !important;
@@ -85,7 +85,7 @@ h3 {
 .birth-wrap span {float: left;}
 
 .sign-phone-first,
-.sign-phone {width: 80px;}
+.sign-phone {width: 150px;}
 
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {

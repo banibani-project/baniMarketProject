@@ -1,4 +1,5 @@
-    <footer id="footer">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+	<footer id="footer">
         <div class="footer-container">
             <div class="footer-top">
                 <div class="footer-logo"></div>
