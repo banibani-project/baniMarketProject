@@ -84,7 +84,7 @@
                             <img src="../static/images/code.png" alt="">
                         </div>
                         <div class="card-desc">
-                            <h2 class="card-title">#</h2>
+                            <h2 class="card-title">#확인 테스트 123</h2>
                             <div class="card-price">#</div>
                             <div class="card-region-name">#</div>
                             <div class="card-counts">
@@ -100,7 +100,7 @@
                             <img src="../static/images/code.png" alt="">
                         </div>
                         <div class="card-desc">
-                            <h2 class="card-title">#</h2>
+                            <h2 class="card-title">#확인 테스트 123</h2>
                             <div class="card-price">#</div>
                             <div class="card-region-name">#</div>
                             <div class="card-counts">
@@ -116,7 +116,7 @@
                             <img src="../static/images/code.png" alt="">
                         </div>
                         <div class="card-desc">
-                            <h2 class="card-title">#</h2>
+                            <h2 class="card-title">#확인 테스트 123</h2>
                             <div class="card-price">#</div>
                             <div class="card-region-name">#</div>
                             <div class="card-counts">
