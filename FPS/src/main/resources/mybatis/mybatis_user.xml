@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.banibani.user.service.UserMapper">
+	<select id="selectGoodsList" resultType="com.banibani.user.vo.UserVo"> 
+		SELECT 
+			PRODUCTION_CD,
+			PRODUCTION_TITLE,
+			PRODUCTION_CONTENT,
+			PRODUCTION_TYPE,
+			USE_YN,
+			END_DTTM,
+			UPT_DTTM,
+			USER_CD,
+			PRODUCTION_COST,
+			PRODUCTION_X,
+			PRODUCTION_Y
+		FROM TBE_PRODUCTION
+	</select>
+	
+	<select id="selectGoodsCount" resultType="Integer"> 
+		SELECT COUNT(*) FROM TBE_PRODUCTION
+	</select>
+</mapper>
