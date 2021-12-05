@@ -1,0 +1,88 @@
+/* 중고거래 인기 매물 시작 */
+.home-main-section{
+    padding: 83px 0 6rem;
+    margin: 0 auto;
+}
+.home-banner-wrap {
+	width: 100%;
+	background: #fcf7f7;
+	text-align: center;
+}
+
+.section-wrap {
+    width: 1024px;
+    margin: 6rem auto 0;
+}
+.home-hot-content, .home-near-content{
+    text-align: center;
+	margin-bottom: 6rem;
+}
+.home-main-title{
+    height: 54px;
+    line-height: 54px;
+    font-size: 2rem;
+}
+.cards-wrap{
+    width: 100%;
+    display: flex; 
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+.card-top{
+    width: calc(25% - 50px);
+    margin: 0 44px 56px 0;
+    display: inline-block;
+}
+.card-link{
+    text-decoration: none;
+    color: #212529;
+}
+.card-photo{
+    overflow: hidden;
+    border-radius: 12px;
+}
+.card-photo > img{
+    width: 100%;
+    background-color: #f3f3f3;
+}
+.card-desc{
+    text-align: left;
+    margin-top: 8px;
+}
+.card-title{
+    font-size: 16px;
+    letter-spacing: -0.02px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    line-height: 1.5;
+    font-weight: normal;
+    margin-bottom: 4px;
+}
+.card-price{
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 1.5;
+    margin-bottom: 4px;
+}
+.card-region-name{
+    font-size: 15px;
+    margin-bottom: 4px;
+}
+.card-counts{
+    text-align: left;
+    color:#909090;
+}
+.text-center > a{
+    color: #212529;
+    text-decoration: underline;
+}
+
+.home-addr {
+	margin-top: 20px;
+	color: #666;
+	height: 32px;
+}
+#msg, #map_canvas {display: none;}
+
+/* 중고거래 인기매물 끝 */

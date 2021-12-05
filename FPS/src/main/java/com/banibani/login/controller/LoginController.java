@@ -1,20 +1,12 @@
 package com.banibani.login.controller;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.banibani.login.service.LoginService;
-import com.banibani.login.vo.LoginVo;
-
 @Controller
 @RequestMapping("/login")
 public class LoginController {
-	@Autowired
-	LoginService loginService;
 	
 	//21.11.21 회원 가입 페이지
 	@GetMapping("/joinPage")
@@ -24,9 +16,11 @@ public class LoginController {
 	
 	//21.11.21 로그인 페이지
 	@GetMapping("/loginPage")
-    public String loginPage() {
+    public String postsSave() {
         return "/login/loginPage";
     }
+<<<<<<< HEAD
+=======
 	
 	//21.11.21 회원 여부 확인
 	@GetMapping("/loginCheck")
@@ -38,5 +32,6 @@ public class LoginController {
 		
 		return "/login/loginPage";
 	}
+>>>>>>> branch 'main' of https://github.com/banibani-project/baniMarketProject.git
 
 }

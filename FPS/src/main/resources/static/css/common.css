@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* Reset */
 *, html, body { margin: 0; padding: 0; }
 li { list-style: none; }
@@ -243,3 +244,9 @@ a { text-decoration: none; }
 }
 
 /* footer 끝 */
+=======
+/* Reset */
+*, html, body { margin: 0; padding: 0; }
+li { list-style: none; }
+a { text-decoration: none; }
+>>>>>>> branch 'main' of https://github.com/banibani-project/baniMarketProject.git
