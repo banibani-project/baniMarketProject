@@ -50,6 +50,18 @@ public class UserController {
         return result;
 		
     }
+	
+	//21.12.02_존_사용자 페이지 > 특정 상품 페이지
+	@GetMapping("/userDetail")
+    public String userDetail() {
+        return "/user/userDetail";
+    }
+	
+	//21.12.02_존_사용자 페이지 > 본인 정보 수정 페이지 
+	@GetMapping("/myInfo")
+    public String myInfo() {
+        return "/user/myInfo";
+    }
 
 	@RequestMapping(value="/openUserCreate.do")
 	public String openUserCreate() {
