@@ -4,16 +4,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.banibani.login.vo.LoginVo;
 import com.banibani.user.service.UserSerivce;
 import com.banibani.user.vo.UserVo;
 
@@ -33,10 +33,15 @@ public class UserController {
 	//21.12.02_존_사용자 페이지 > 인기매물/우리동네매물 리스트 가져오기 동작
 	@GetMapping("/selectGoodsListPs")
 	@ResponseBody
-	public Map<String, Object> selectGoodsListPs() throws Exception{
+	public Map<String, Object> selectGoodsListPs(HttpServletRequest request) throws Exception{
 		Map<String, Object> result = new HashMap();
 		
 		int totalCount = userService.selectGoodsCount();
+		
+		int page = 1;	if(request.getParameter("page")!=null) {page = Integer.valueOf(request.getParameter("page"));}
+		UserVo userVo = new UserVo();
+		//userVo.setStartLimit(page*10);
+		
 		
 		List<UserVo> goodList = userService.selectGoodsList();
 		for(int a=0;a<goodList.size();a++) {
