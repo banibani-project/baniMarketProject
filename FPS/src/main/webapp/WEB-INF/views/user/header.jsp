@@ -4,7 +4,7 @@
             <h1 class="fixed-bar-logo">
                 <a href="#">
                     <span class="sr-only">바니마켓</span>
-                    <img class="fixed-logo" src="../static/images/bani_logo.png" alt="BaniMarket">
+                    <img src="../static/images/footer_logo.png" class="fixed-logo">
                 </a>
             </h1>
             <section class="fiexd-bar-search">
