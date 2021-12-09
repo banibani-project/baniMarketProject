@@ -20,9 +20,15 @@
     <link rel="stylesheet" href="../static/css/footer.css">
     
     <script type="text/javascript">
+    	let populPaper = 1;
 	    $(function(){
+	    	showMoreGoods();
+	    });
+	    
+	    //21.12.09 리스트 추가 버튼
+	    function showMoreGoods() {
 	    	// json 형식으로 데이터 set
-            var params = {name:'은'};
+            let params = {page : populPaper};
 	    	$.ajax({
 	    		//나는야 post 방식 확인방법
 	    		type : "GET",
@@ -30,14 +36,29 @@
                 url : "/user/selectGoodsListPs",      // 컨트롤러에서 대기중인 URL 주소이다.
                 data : params,            // Json 형식의 데이터이다.
                 success : function(res){ // 비동기통신의 성공일경우 success콜백으로 들어옵니다. 'res'는 응답받은 데이터이다.
-                    // 응답코드 > 0000
-                    alert(res.code);
+                	let html = "";
+                	for(idx in res.goodList){
+                		let goodDetail = res.goodList[idx]
+                		
+                		html += "<article class=\"card-top\"><a href=\"#\" class=\"card-link\"><div class=\"card-photo\">";
+                		html += "<img src=\"../static/images/code.png\" alt=\"\">";
+                		html += "</div>";
+                		html += "<div class=\"card-desc\">";
+                		html += "<h2 class=\"card-title\">#</h2>";
+                		html += "<div class=\"card-price\">#</div>";
+                		html += "<div class=\"card-region-name\">#</div>";
+                		html += "<div class=\"card-counts\">";
+                		html += "<span>"+goodDetail.production_title+"</span><span>"+goodDetail.production_content+"</span>";
+                		html += "</div></div></a></article>";
+                	}
+                	$("#populGoods").append(html);
+                	populPaper = populPaper + 1;
                 },
                 error : function(request, status, error){ // 비동기 통신이 실패할경우 error 콜백으로 들어옵니다.
                     alert("통신 실패."+error);
                 }
             });
-	    });
+		}
     </script>
 </head>
 <body>
@@ -52,8 +73,8 @@
 		<div class="section-wrap">
 			<div class="home-hot-content">
 				<h1 class="home-main-title">중고거래 인기매물</h1>
-				<div class="cards-wrap">
-					<article class="card-top">
+				<div class="cards-wrap" id="populGoods">
+					<!-- <article class="card-top">
 						<a href="#" class="card-link">
 							<div class="card-photo">
 								<img src="../static/images/code.png" alt="">
@@ -180,10 +201,10 @@
 								</div>
 							</div>
 						</a>
-					</article>
+					</article> -->
 				</div>
 				<div class="text-center">
-					<a href="#">인기매물 더 보기</a>
+					<a href="#none" onclick="showMoreGoods()">인기매물 더 보기</a>
 				</div>
 			</div>
 
