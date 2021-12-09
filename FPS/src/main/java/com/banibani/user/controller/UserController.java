@@ -40,17 +40,16 @@ public class UserController {
 		
 		int page = 1;	if(request.getParameter("page")!=null) {page = Integer.valueOf(request.getParameter("page"));}
 		UserVo userVo = new UserVo();
-		//userVo.setStartLimit(page*10);
+		userVo.setStartLimit((page-1)*8);
+		userVo.setLimitSize(8);
 		
-		
-		List<UserVo> goodList = userService.selectGoodsList();
+		List<UserVo> goodList = userService.selectGoodsList(userVo);
 		for(int a=0;a<goodList.size();a++) {
 			System.out.println("나는야"+goodList.get(a));
 		}
 		
-		
 		// 응답 데이터 셋팅
-        result.put("code", "0000");
+        result.put("goodList", goodList);
         
         return result;
 		

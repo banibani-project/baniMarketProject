@@ -23,6 +23,10 @@ public class UserVo {
 	//21.12.07 페이징 처리
 	private int startLimit;
 	private int limitSize;
+	
+	//21.12.09 상품 관련
+	private String production_title;
+	private String production_content;
 
 	
 }
