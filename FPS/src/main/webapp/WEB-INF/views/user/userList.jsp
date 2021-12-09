@@ -20,14 +20,15 @@
     <link rel="stylesheet" href="../static/css/footer.css">
     
     <script type="text/javascript">
+    	let populPaper = 1;
 	    $(function(){
-	    	showMoreGoods(1);
+	    	showMoreGoods();
 	    });
 	    
 	    //21.12.09 리스트 추가 버튼
-	    function showMoreGoods(paper) {
+	    function showMoreGoods() {
 	    	// json 형식으로 데이터 set
-            let params = {paper:paper};
+            let params = {page : populPaper};
 	    	$.ajax({
 	    		//나는야 post 방식 확인방법
 	    		type : "GET",
@@ -51,6 +52,7 @@
                 		html += "</div></div></a></article>";
                 	}
                 	$("#populGoods").append(html);
+                	populPaper = populPaper + 1;
                 },
                 error : function(request, status, error){ // 비동기 통신이 실패할경우 error 콜백으로 들어옵니다.
                     alert("통신 실패."+error);
@@ -202,7 +204,7 @@
 					</article> -->
 				</div>
 				<div class="text-center">
-					<a href="#" onclick="showMoreGoods(2)">인기매물 더 보기</a>
+					<a href="#none" onclick="showMoreGoods()">인기매물 더 보기</a>
 				</div>
 			</div>
 

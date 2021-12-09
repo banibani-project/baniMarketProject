@@ -15,6 +15,7 @@
 			PRODUCTION_X,
 			PRODUCTION_Y
 		FROM TBE_PRODUCTION
+		ORDER BY PRODUCTION_CD DESC
 		limit #{startLimit},#{limitSize}
 	</select>
 	

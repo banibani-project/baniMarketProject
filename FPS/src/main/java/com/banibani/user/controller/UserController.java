@@ -44,10 +44,6 @@ public class UserController {
 		userVo.setLimitSize(8);
 		
 		List<UserVo> goodList = userService.selectGoodsList(userVo);
-		for(int a=0;a<goodList.size();a++) {
-			System.out.println("나는야"+goodList.get(a));
-		}
-		
 		// 응답 데이터 셋팅
         result.put("goodList", goodList);
         
