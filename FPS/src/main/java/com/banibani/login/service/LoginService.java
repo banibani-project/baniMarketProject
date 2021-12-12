@@ -1,18 +1,15 @@
 package com.banibani.login.service;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.ui.ModelMap;
 
 import com.banibani.login.vo.LoginVo;
 
-@Service
-public class LoginService {
-	@Autowired
-	public LoginMapper loginMapper;
-	
-	public List<LoginVo> selectTest() {
-		return loginMapper.selectTest();
-	}
+public interface LoginService {
+
+
+	ModelMap selectOneUserIdChecked(LoginVo loginVo);
+
+	ModelMap insertUserInfoCreate(LoginVo loginVo);
+
+
 }

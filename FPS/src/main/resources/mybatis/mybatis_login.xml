@@ -1,7 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.banibani.login.service.LoginMapper">
-	<select id="selectTest" resultType="com.banibani.login.vo.LoginVo"> 
+<mapper namespace="com.banibani.login.dao.LoginDao">
+	<select id="selectTest" resultType="com.banibani.login.vo.LoginVo">
 		SELECT 'GOD' AS id from dual
 	</select>
+
+	<!-- user_id checked -->
+	<select id="selectOneUserIdChecked" resultType="int" parameterType="String">
+		SELECT COUNT(USER_ID) AS COUNT
+		FROM TBE_USER
+		  WHERE USER_ID = #{user_id}
+	</select>
+
+
+
+	<!-- user_create-->
+	<select id="selectUserInfoSequence" resultType="com.banibani.login.vo.LoginVo" parameterType="String">
+		SELECT LPAD(NVL(MAX(A.USER_CD), 0)+1 ,5 ,'0')
+		FROM TBE_USER A
+	</select>
+
+	<insert id="insertUserInfoCreate">
+	INSERT INTO TBE_USER(
+	    USER_CD
+	    , USER_ID
+	    , USER_PASSWORD
+	    , USER_NAME
+	    , USER_USETODAY
+	    , USER_PHONE
+	    , USER_AGE
+	    , USER_ADDRESS
+	    , USER_TYPE_CODE
+	) VALUES (
+	    #{user_cd}
+	    , #{user_id}
+	    , #{user_password}
+	    , #{user_name}
+	    , '1'
+	    , #{user_phone}
+	    , #{user_age}
+	    , #{user_address}
+	    , #{user_type_code}
+	)
+	</insert>
+
 </mapper>
