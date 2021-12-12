@@ -62,6 +62,12 @@ public class UserController {
     public String myInfo() {
         return "/user/myInfo";
     }
+	
+	//21.12.12_존_사용자 페이지 > 마이페이지
+	@GetMapping("/myPage")
+	public String myPage() {
+		return "/user/myPage";
+	}
 
 	@RequestMapping(value="/openUserCreate.do")
 	public String openUserCreate() {
