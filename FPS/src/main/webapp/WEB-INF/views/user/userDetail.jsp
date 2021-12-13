@@ -33,7 +33,7 @@
                     </li>
                 </ul>
                 <div class="btns" id="next">
-                    <!-- i 태그 안에 있는 class는 네이밍 변경 불가 -->
+                    <!-- i 태그 안에 있는 class는 이름 변경 불가 -->
                     <i class="fa fa-arrow-right"></i>
                 </div>
                 <div class="btns" id="prev">
