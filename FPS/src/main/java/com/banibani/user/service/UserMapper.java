@@ -13,7 +13,7 @@ import com.banibani.user.vo.UserVo;
 public interface UserMapper {
 	ModelMap UserIdVlaueCheck();
 
-	List<UserVo> selectGoodsList();
+	List<UserVo> selectGoodsList(UserVo userVo);
 
 	int selectGoodsCount();
 

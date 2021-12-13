@@ -1,4 +1,4 @@
-/* Áß°í°Å·¡ ÀÎ±â ¸Å¹° ½ÃÀÛ */
+/* ï¿½ß°ï¿½Å·ï¿½ ï¿½Î±ï¿½ ï¿½Å¹ï¿½ ï¿½ï¿½ï¿½ï¿½ */
 .home-main-section{
     padding: 83px 0 6rem;
     margin: 0 auto;
@@ -7,6 +7,7 @@
 	width: 100%;
 	background: #fcf7f7;
 	text-align: center;
+	margin-top: 5rem;
 }
 
 .section-wrap {
@@ -85,4 +86,4 @@
 }
 #msg, #map_canvas {display: none;}
 
-/* Áß°í°Å·¡ ÀÎ±â¸Å¹° ³¡ */
+/* ï¿½ß°ï¿½Å·ï¿½ ï¿½Î±ï¿½Å¹ï¿½ ï¿½ï¿½ */
