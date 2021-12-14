@@ -17,4 +17,6 @@ public interface UserMapper {
 
 	int selectGoodsCount();
 
+	UserVo selectGoodsDetail(UserVo userVo);
+
 }

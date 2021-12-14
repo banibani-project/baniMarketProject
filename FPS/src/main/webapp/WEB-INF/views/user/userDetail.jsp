@@ -84,10 +84,11 @@
                 </p>
                 <div class="section-ctnt">
                     <p>
-                        제품 설명<br>
+                        <!-- 제품 설명<br>
                         하자 없고 산지 얼마 안됐습니다<br>
                         직거래만 원해요<br>
-                        연락주세요
+                        연락주세요 -->
+                        ${goodUserVo.production_content }
                     </p>
                 </div>
                 <p class="section-counts">

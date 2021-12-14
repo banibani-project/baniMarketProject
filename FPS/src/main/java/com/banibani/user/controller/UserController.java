@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -53,7 +54,15 @@ public class UserController {
 	
 	//21.12.02_존_사용자 페이지 > 특정 상품 페이지
 	@GetMapping("/userDetail")
-    public String userDetail() {
+    public String userDetail(HttpServletRequest request,Model model) {
+		UserVo userVo = new UserVo();
+		userVo.setProduction_cd(request.getParameter("production_cd"));
+		
+		UserVo goodUserVo = userService.selectGoodsDetail(userVo);
+		
+		System.out.println("나는야"+userVo.getProduction_cd()+"//"+goodUserVo);
+		model.addAttribute("goodUserVo", goodUserVo);
+		
         return "/user/userDetail";
     }
 	
