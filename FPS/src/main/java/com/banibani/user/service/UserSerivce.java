@@ -21,14 +21,19 @@ public class UserSerivce {
 		return userMapper.UserIdVlaueCheck();
 	}
 
-	//21.12.02_존_인기매물/우리동네매물 갯수
+	//21.12.02_존_인기매물/우리동네매물 갯수 조회
 	public int selectGoodsCount() {
 		return userMapper.selectGoodsCount();
 	}
 
-	//21.12.02_존_인기매물/우리동네매물 리스트
+	//21.12.02_존_인기매물/우리동네매물 리스트 조회
 	public List<UserVo> selectGoodsList(UserVo userVo) {
 		return userMapper.selectGoodsList(userVo);
+	}
+
+	//21.12.14_존_특정 매물 조회
+	public UserVo selectGoodsDetail(UserVo userVo) {
+		return userMapper.selectGoodsDetail(userVo);
 	}
 
 }

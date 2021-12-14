@@ -22,4 +22,21 @@
 	<select id="selectGoodsCount" resultType="Integer"> 
 		SELECT COUNT(*) FROM TBE_PRODUCTION
 	</select>
+	
+	<select id="selectGoodsDetail" parameterType="com.banibani.user.vo.UserVo" resultType="com.banibani.user.vo.UserVo"> 
+		SELECT 
+			PRODUCTION_CD,
+			PRODUCTION_TITLE,
+			PRODUCTION_CONTENT,
+			PRODUCTION_TYPE,
+			USE_YN,
+			END_DTTM,
+			UPT_DTTM,
+			USER_CD,
+			PRODUCTION_COST,
+			PRODUCTION_X,
+			PRODUCTION_Y
+		FROM TBE_PRODUCTION
+		WHERE PRODUCTION_CD = #{production_cd}
+	</select>
 </mapper>
