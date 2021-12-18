@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.ModelMap;
 
+import com.banibani.board.vo.BoardVo;
 import com.banibani.user.vo.UserVo;
 
 @Repository
@@ -13,10 +14,10 @@ import com.banibani.user.vo.UserVo;
 public interface UserMapper {
 	ModelMap UserIdVlaueCheck();
 
-	List<UserVo> selectGoodsList(UserVo userVo);
+	List<BoardVo> selectGoodsList(BoardVo boardVo);
 
 	int selectGoodsCount();
 
-	UserVo selectGoodsDetail(UserVo userVo);
+	UserVo selectGoodsDetail(BoardVo boardVo);
 
 }

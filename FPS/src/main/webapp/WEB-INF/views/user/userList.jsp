@@ -44,11 +44,11 @@
                 		html += "<img src=\"../static/images/code.png\" alt=\"\">";
                 		html += "</div>";
                 		html += "<div class=\"card-desc\">";
-                		html += "<h2 class=\"card-title\">#</h2>";
-                		html += "<div class=\"card-price\">#</div>";
+                		html += "<h2 class=\"card-title\">"+goodDetail.production_title+"</h2>";
+                		html += "<div class=\"card-price\">"+numberWithCommas(goodDetail.production_cost)+"원</div>";
                 		html += "<div class=\"card-region-name\">#</div>";
                 		html += "<div class=\"card-counts\">";
-                		html += "<span>"+goodDetail.production_title+"</span><span>"+goodDetail.production_content+"</span>";
+                		html += "<span>관심 "+goodDetail.like_count+"  채팅 "+goodDetail.comment_count+"</span>";
                 		html += "</div></div></a></article>";
                 	}
                 	$("#populGoods").append(html);

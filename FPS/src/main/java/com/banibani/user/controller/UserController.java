@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.banibani.board.vo.BoardVo;
 import com.banibani.user.service.UserSerivce;
 import com.banibani.user.vo.UserVo;
 
@@ -40,11 +41,11 @@ public class UserController {
 		int totalCount = userService.selectGoodsCount();
 		
 		int page = 1;	if(request.getParameter("page")!=null) {page = Integer.valueOf(request.getParameter("page"));}
-		UserVo userVo = new UserVo();
-		userVo.setStartLimit((page-1)*8);
-		userVo.setLimitSize(8);
+		BoardVo boardVo = new BoardVo();
+		boardVo.setStartLimit((page-1)*8);
+		boardVo.setLimitSize(8);
 		
-		List<UserVo> goodList = userService.selectGoodsList(userVo);
+		List<BoardVo> goodList = userService.selectGoodsList(boardVo);
 		// 응답 데이터 셋팅
         result.put("goodList", goodList);
         
@@ -55,12 +56,11 @@ public class UserController {
 	//21.12.02_존_사용자 페이지 > 특정 상품 페이지
 	@GetMapping("/userDetail")
     public String userDetail(HttpServletRequest request,Model model) {
-		UserVo userVo = new UserVo();
-		userVo.setProduction_cd(request.getParameter("production_cd"));
+		BoardVo boardVo = new BoardVo();
+		boardVo.setProduction_cd(request.getParameter("production_cd"));
 		
-		UserVo goodUserVo = userService.selectGoodsDetail(userVo);
+		UserVo goodUserVo = userService.selectGoodsDetail(boardVo);
 		
-		System.out.println("나는야"+userVo.getProduction_cd()+"//"+goodUserVo);
 		model.addAttribute("goodUserVo", goodUserVo);
 		
         return "/user/userDetail";

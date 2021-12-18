@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.banibani.user.service.UserMapper">
-	<select id="selectGoodsList" parameterType="com.banibani.user.vo.UserVo" resultType="com.banibani.user.vo.UserVo"> 
+	<select id="selectGoodsList" parameterType="com.banibani.board.vo.BoardVo" resultType="com.banibani.board.vo.BoardVo"> 
 		SELECT 
 			PRODUCTION_CD,
 			PRODUCTION_TITLE,
@@ -13,9 +13,11 @@
 			USER_CD,
 			PRODUCTION_COST,
 			PRODUCTION_X,
-			PRODUCTION_Y
-		FROM TBE_PRODUCTION
-		ORDER BY PRODUCTION_CD*1 DESC
+			PRODUCTION_Y,
+			(SELECT COUNT(*) FROM TBE_LIKE T_LIKE WHERE T_LIKE.USE_YN = 'Y' AND T_LIKE.PRODUCTION_CD = T_PRO.PRODUCTION_CD) AS LIKE_COUNT,
+      		(SELECT COUNT(*) FROM TBE_COMMENT T_COM WHERE T_COM.USE_YN = 'Y' AND T_COM.PRODUCTION_CD = T_PRO.PRODUCTION_CD) AS COMMENT_COUNT
+		FROM TBE_PRODUCTION T_PRO
+		ORDER BY PRODUCTION_CD*1 
 		limit #{startLimit},#{limitSize}
 	</select>
 	
@@ -23,7 +25,7 @@
 		SELECT COUNT(*) FROM TBE_PRODUCTION
 	</select>
 	
-	<select id="selectGoodsDetail" parameterType="com.banibani.user.vo.UserVo" resultType="com.banibani.user.vo.UserVo"> 
+	<select id="selectGoodsDetail" parameterType="com.banibani.board.vo.BoardVo" resultType="com.banibani.board.vo.BoardVo"> 
 		SELECT 
 			PRODUCTION_CD,
 			PRODUCTION_TITLE,
