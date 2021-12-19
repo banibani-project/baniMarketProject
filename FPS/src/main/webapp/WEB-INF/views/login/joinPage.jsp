@@ -70,23 +70,34 @@
 					xhr.setRequestHeader(header, token);
 				}
 				, success : function(output_data) {
+					// TextSetting 
+					for (var i = 0; i < 3; i++) {
+			 			 clearTimeout(i);
+					}
+					
 					// 성공시 데이터 분할
 					if(output_data.msg == "success") {
-						msg = "사용가능한 아이디 입니다.";
+						$('#ex_id').text('사용 가능한 아이디입니다.')
+						$('#ex_id').removeClass('error');
+						$('#ex_id').addClass('correct');
 						userChecked = true;
 					} else {
-						msg = "사용이 불가능한 아디입니다.";
+						$('#ex_id').text('이미 존재하는 아이디입니다.')
+						$('#ex_id').addClass('error');
+						$('#ex_id').removeClass('correct');
 					}
-					if(output_data.msg != null || output_data.msg != "") {
-						alert(msg);
-					}
-					$("#ex_id").val(msg);
+					var id_empty = setTimeout(TimeoutId, 3000);
 				}
 				, error : function(error) {
 					alert("error발생 \n관리자에게 문의해주세요.");
 				}
 			})
 		}
+	};
+	
+	//TimeOutSetting 
+	function TimeoutId() {
+		$('#ex_id').text(''); 
 	};
 
 	// address api iframe clase
@@ -294,6 +305,14 @@
 					<input type="number" id="phone2" name="phone2" class="sign-design sign-phone" max="9999" value="" oninput="maxLengthCheck(this, 4);">
 					<span class="phone-mid">-</span>
 					<input type="number" id="phone3" name="phone3" class="sign-design sign-phone" max="9999" value="" oninput="maxLengthCheck(this, 4);">
+				</div>
+
+				<h3>성별</h3>
+				<div>
+					<input type="radio" name="gender" id="gender_male" checked="checked">
+					<label for="gender_male" class="male_chk">남성</label>
+					<input type="radio" name="gender" id="gender_female">
+					<label for="gender_female" class="female_chk">여성</label>
 				</div>
 
 				<h3>생년월일</h3>
