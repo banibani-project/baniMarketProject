@@ -12,23 +12,39 @@
     <script type="text/javascript"
       src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAbd1vRe5hqCzX0Cvjb9ho5BUVtyoeYoew&sensor=FALSE"></script>
 
-	<script src="../static/js/geolocation.js"></script>
+	<script src="/static/js/geolocation.js"></script>
 
-    <link rel="stylesheet" href="../static/css/common.css">
-    <link rel="stylesheet" href="../static/css/header.css">
-    <link rel="stylesheet" href="../static/css/userList.css">
-    <link rel="stylesheet" href="../static/css/footer.css">
+    <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="/static/css/header.css">
+    <link rel="stylesheet" href="/static/css/userList.css">
+    <link rel="stylesheet" href="/static/css/footer.css">
     
     <script type="text/javascript">
-    	let populPaper = 1;
+    	let populPaper = 0;
+    	let homePaper = 0;
 	    $(function(){
-	    	showMoreGoods();
+	    	//21.12.19 P(popular의 약자로 인기매물 의미) / H(home의 약자로 우리동네매물 의미)
+	    	showMoreGoods("P");
+	    	showMoreGoods("H");
 	    });
 	    
 	    //21.12.09 리스트 추가 버튼
-	    function showMoreGoods() {
+	    function showMoreGoods(type) {
 	    	// json 형식으로 데이터 set
-            let params = {page : populPaper};
+	    	let page = 0;
+	    	if(type=="P"){
+		    	populPaper = populPaper + 1;
+		    	page = populPaper;
+	    	}
+	    	else if(type=="H"){
+	    		homePaper = homePaper + 1;
+	    		page = homePaper;
+	    	}
+	    	
+            let params = {
+            			page : page,
+            			type_list : type
+            		};
 	    	$.ajax({
 	    		//나는야 post 방식 확인방법
 	    		type : "GET",
@@ -38,10 +54,14 @@
                 success : function(res){ // 비동기통신의 성공일경우 success콜백으로 들어옵니다. 'res'는 응답받은 데이터이다.
                 	let html = "";
                 	for(idx in res.goodList){
-                		let goodDetail = res.goodList[idx]
+                		let goodDetail = res.goodList[idx];
                 		
                 		html += "<article class=\"card-top\"><a href=\"#\" class=\"card-link\"><div class=\"card-photo\">";
-                		html += "<img src=\"../static/images/code.png\" alt=\"\">";
+                		if(isEmpty(goodDetail.file_whole)){
+                			html += "<img src=\"/static/images/code.png\" alt=\"\">";
+                		}else{
+                			html += "<img src=\""+goodDetail.file_whole+"\" alt=\"\">";
+                		}
                 		html += "</div>";
                 		html += "<div class=\"card-desc\">";
                 		html += "<h2 class=\"card-title\">"+goodDetail.production_title+"</h2>";
@@ -51,8 +71,8 @@
                 		html += "<span>관심 "+goodDetail.like_count+"  채팅 "+goodDetail.comment_count+"</span>";
                 		html += "</div></div></a></article>";
                 	}
-                	$("#populGoods").append(html);
-                	populPaper = populPaper + 1;
+                	if(type=="P")		{$("#populGoods").append(html);}
+                	else if(type=="H")	{$("#homeGoods").append(html);}
                 },
                 error : function(request, status, error){ // 비동기 통신이 실패할경우 error 콜백으로 들어옵니다.
                     alert("통신 실패."+error);
@@ -67,129 +87,18 @@
 
 	<section class="home-main-section">
 		<div class="home-banner-wrap">
-			<img src="../static/images/bani_banner.jpg">
+			<img src="/static/images/bani_banner.jpg">
 		</div>
 
 		<div class="section-wrap">
 			<div class="home-hot-content">
 				<h1 class="home-main-title">중고거래 인기매물</h1>
 				<div class="cards-wrap" id="populGoods">
+					<!-- 예시 -->
 					<!-- <article class="card-top">
 						<a href="#" class="card-link">
 							<div class="card-photo">
-								<img src="../static/images/code.png" alt="">
-							</div>
-							<div class="card-desc">
-								<h2 class="card-title">#</h2>
-								<div class="card-price">#</div>
-								<div class="card-region-name">#</div>
-								<div class="card-counts">
-									<span>#</span>
-									<span>#</span>
-								</div>
-							</div>
-						</a>
-					</article>
-					<article class="card-top">
-						<a href="#" class="card-link">
-							<div class="card-photo">
-								<img src="../static/images/code.png" alt="">
-							</div>
-							<div class="card-desc">
-								<h2 class="card-title">#</h2>
-								<div class="card-price">#</div>
-								<div class="card-region-name">#</div>
-								<div class="card-counts">
-									<span>#</span>
-									<span>#</span>
-								</div>
-							</div>
-						</a>
-					</article>
-					<article class="card-top">
-						<a href="#" class="card-link">
-							<div class="card-photo">
-								<img src="../static/images/code.png" alt="">
-							</div>
-							<div class="card-desc">
-								<h2 class="card-title">#</h2>
-								<div class="card-price">#</div>
-								<div class="card-region-name">#</div>
-								<div class="card-counts">
-									<span>#</span>
-									<span>#</span>
-								</div>
-							</div>
-						</a>
-					</article>
-					<article class="card-top">
-						<a href="#" class="card-link">
-							<div class="card-photo">
-								<img src="../static/images/code.png" alt="">
-							</div>
-							<div class="card-desc">
-								<h2 class="card-title">#확인 테스트 123</h2>
-								<div class="card-price">#</div>
-								<div class="card-region-name">#</div>
-								<div class="card-counts">
-									<span>#</span>
-									<span>#</span>
-								</div>
-							</div>
-						</a>
-					</article>
-					<article class="card-top">
-						<a href="#" class="card-link">
-							<div class="card-photo">
-								<img src="../static/images/code.png" alt="">
-							</div>
-							<div class="card-desc">
-								<h2 class="card-title">#확인 테스트 123</h2>
-								<div class="card-price">#</div>
-								<div class="card-region-name">#</div>
-								<div class="card-counts">
-									<span>#</span>
-									<span>#</span>
-								</div>
-							</div>
-						</a>
-					</article>
-					<article class="card-top">
-						<a href="#" class="card-link">
-							<div class="card-photo">
-								<img src="../static/images/code.png" alt="">
-							</div>
-							<div class="card-desc">
-								<h2 class="card-title">#확인 테스트 123</h2>
-								<div class="card-price">#</div>
-								<div class="card-region-name">#</div>
-								<div class="card-counts">
-									<span>#</span>
-									<span>#</span>
-								</div>
-							</div>
-						</a>
-					</article>
-					<article class="card-top">
-						<a href="#" class="card-link">
-							<div class="card-photo">
-								<img src="../static/images/code.png" alt="">
-							</div>
-							<div class="card-desc">
-								<h2 class="card-title">#</h2>
-								<div class="card-price">#</div>
-								<div class="card-region-name">#</div>
-								<div class="card-counts">
-									<span>#</span>
-									<span>#</span>
-								</div>
-							</div>
-						</a>
-					</article>
-					<article class="card-top">
-						<a href="#" class="card-link">
-							<div class="card-photo">
-								<img src="../static/images/code.png" alt="">
+								<img src="/static/images/code.png" alt="">
 							</div>
 							<div class="card-desc">
 								<h2 class="card-title">#</h2>
@@ -204,21 +113,20 @@
 					</article> -->
 				</div>
 				<div class="text-center">
-					<a href="#none" onclick="showMoreGoods()">인기매물 더 보기</a>
+					<a href="#none" onclick="showMoreGoods('P')">인기매물 더 보기</a>
 				</div>
 			</div>
-
-			
 			<div class="home-near-content">
 				<h1 class="home-main-title">우리동네매물</h1>
 				<h3 class="home-addr"></h3>
 				<div id="msg"></div>
 				<div id="map_canvas"></div>
-				<div class="cards-wrap">
-					<article class="card-top">
+				<div class="cards-wrap" id="homeGoods">
+					<!-- 예시 -->
+					<!-- <article class="card-top">
 						<a href="#" class="card-link">
 							<div class="card-photo">
-								<img src="../static/images/code.png" alt="">
+								<img src="/static/images/code.png" alt="">
 							</div>
 							<div class="card-desc">
 								<h2 class="card-title">#</h2>
@@ -230,122 +138,10 @@
 								</div>
 							</div>
 						</a>
-					</article>
-					<article class="card-top">
-						<a href="#" class="card-link">
-							<div class="card-photo">
-								<img src="../static/images/code.png" alt="">
-							</div>
-							<div class="card-desc">
-								<h2 class="card-title">#</h2>
-								<div class="card-price">#</div>
-								<div class="card-region-name">#</div>
-								<div class="card-counts">
-									<span>#</span>
-									<span>#</span>
-								</div>
-							</div>
-						</a>
-					</article>
-					<article class="card-top">
-						<a href="#" class="card-link">
-							<div class="card-photo">
-								<img src="../static/images/code.png" alt="">
-							</div>
-							<div class="card-desc">
-								<h2 class="card-title">#</h2>
-								<div class="card-price">#</div>
-								<div class="card-region-name">#</div>
-								<div class="card-counts">
-									<span>#</span>
-									<span>#</span>
-								</div>
-							</div>
-						</a>
-					</article>
-					<article class="card-top">
-						<a href="#" class="card-link">
-							<div class="card-photo">
-								<img src="../static/images/code.png" alt="">
-							</div>
-							<div class="card-desc">
-								<h2 class="card-title">#확인 테스트 123</h2>
-								<div class="card-price">#</div>
-								<div class="card-region-name">#</div>
-								<div class="card-counts">
-									<span>#</span>
-									<span>#</span>
-								</div>
-							</div>
-						</a>
-					</article>
-					<article class="card-top">
-						<a href="#" class="card-link">
-							<div class="card-photo">
-								<img src="../static/images/code.png" alt="">
-							</div>
-							<div class="card-desc">
-								<h2 class="card-title">#확인 테스트 123</h2>
-								<div class="card-price">#</div>
-								<div class="card-region-name">#</div>
-								<div class="card-counts">
-									<span>#</span>
-									<span>#</span>
-								</div>
-							</div>
-						</a>
-					</article>
-					<article class="card-top">
-						<a href="#" class="card-link">
-							<div class="card-photo">
-								<img src="../static/images/code.png" alt="">
-							</div>
-							<div class="card-desc">
-								<h2 class="card-title">#확인 테스트 123</h2>
-								<div class="card-price">#</div>
-								<div class="card-region-name">#</div>
-								<div class="card-counts">
-									<span>#</span>
-									<span>#</span>
-								</div>
-							</div>
-						</a>
-					</article>
-					<article class="card-top">
-						<a href="#" class="card-link">
-							<div class="card-photo">
-								<img src="../static/images/code.png" alt="">
-							</div>
-							<div class="card-desc">
-								<h2 class="card-title">#</h2>
-								<div class="card-price">#</div>
-								<div class="card-region-name">#</div>
-								<div class="card-counts">
-									<span>#</span>
-									<span>#</span>
-								</div>
-							</div>
-						</a>
-					</article>
-					<article class="card-top">
-						<a href="#" class="card-link">
-							<div class="card-photo">
-								<img src="../static/images/code.png" alt="">
-							</div>
-							<div class="card-desc">
-								<h2 class="card-title">#</h2>
-								<div class="card-price">#</div>
-								<div class="card-region-name">#</div>
-								<div class="card-counts">
-									<span>#</span>
-									<span>#</span>
-								</div>
-							</div>
-						</a>
-					</article>
+					</article> -->
 				</div>
 				<div class="text-center">
-					<a href="#">우리동네매물 더 보기</a>
+					<a href="#none" onclick="showMoreGoods('H')">우리동네매물 더 보기</a>
 				</div>
 			</div>
 		</div>

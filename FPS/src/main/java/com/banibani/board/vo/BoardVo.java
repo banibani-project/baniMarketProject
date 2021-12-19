@@ -19,4 +19,6 @@ public class BoardVo {
 	private int production_cost;	//제품가격
 	private int like_count;	//호감개수
 	private int comment_count;	//채팅개수
+	private String type_list;	//인기매물(P),우리동네매물(T)
+	private String file_whole;	//파일 경로 + 파일 이름(서버저장용)
 }

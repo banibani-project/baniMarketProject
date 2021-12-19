@@ -42,6 +42,8 @@ public class UserController {
 		
 		int page = 1;	if(request.getParameter("page")!=null) {page = Integer.valueOf(request.getParameter("page"));}
 		BoardVo boardVo = new BoardVo();
+		String typeList = "";	if(request.getParameter("type_list")!=null) {typeList = request.getParameter("type_list");}
+		boardVo.setType_list(typeList);
 		boardVo.setStartLimit((page-1)*8);
 		boardVo.setLimitSize(8);
 		
