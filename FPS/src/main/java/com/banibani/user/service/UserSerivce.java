@@ -33,7 +33,7 @@ public class UserSerivce {
 	}
 
 	//21.12.14_존_특정 매물 조회
-	public UserVo selectGoodsDetail(BoardVo boardVo) {
+	public BoardVo selectGoodsDetail(BoardVo boardVo) {
 		return userMapper.selectGoodsDetail(boardVo);
 	}
 

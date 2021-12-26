@@ -56,7 +56,8 @@
                 	for(idx in res.goodList){
                 		let goodDetail = res.goodList[idx];
                 		
-                		html += "<article class=\"card-top\"><a href=\"#\" class=\"card-link\"><div class=\"card-photo\">";
+                		html += "<article class=\"card-top\" onclick=\"moveDetail("+goodDetail.production_cd+")\">";
+                		html += "<a href=\"#\" class=\"card-link\"><div class=\"card-photo\">";
                 		if(isEmpty(goodDetail.file_whole)){
                 			html += "<img src=\"/static/images/code.png\" alt=\"\">";
                 		}else{
@@ -79,6 +80,11 @@
                 }
             });
 		}
+	    
+	    //21.12.26 상세페이지로 이동
+	    function moveDetail(production_cd){
+	    	location.href =  "/user/userDetail.do?production_cd="+production_cd;
+	    }
     </script>
 </head>
 <body>
