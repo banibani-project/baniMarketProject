@@ -1,5 +1,8 @@
 package com.banibani.login.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -44,4 +47,35 @@ public class LoginController {
 	public ModelMap insertUserInfoCreate(@RequestBody LoginVo loginVo) {
 		return loginService.insertUserInfoCreate(loginVo);
 	}
+	/**
+	 *
+	 * 작성일 : 2021. 12. 18.
+	 * 작성자 : jubs
+	 * parm :vo,req
+	 * return :
+	 */
+	@PostMapping("/loginCheck")
+	//@ResponseBody
+	public String loginTest(LoginVo loginVo, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		session.setAttribute("userId", loginVo.getUser_id());
+		session.setAttribute("userInfo", loginVo);
+
+
+		return "/login/loginPage";
+	}
+
+	/**
+	 * 작성일 : 2021. 12. 18.
+	 * 작성자 : jubs
+	 * parm : request
+	 * return :  null
+	 */
+	@GetMapping("/sessionCheck")
+	public ModelMap sessionCheck(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+
+		return null;
+	}
+
 }
