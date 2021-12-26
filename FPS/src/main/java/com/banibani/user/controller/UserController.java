@@ -37,8 +37,7 @@ public class UserController {
 	@ResponseBody
 	public Map<String, Object> selectGoodsListPs(HttpServletRequest request) throws Exception{
 		Map<String, Object> result = new HashMap();
-		
-		int totalCount = userService.selectGoodsCount();
+		//int totalCount = userService.selectGoodsCount();
 		
 		int page = 1;	if(request.getParameter("page")!=null) {page = Integer.valueOf(request.getParameter("page"));}
 		BoardVo boardVo = new BoardVo();
@@ -61,7 +60,7 @@ public class UserController {
 		BoardVo boardVo = new BoardVo();
 		boardVo.setProduction_cd(request.getParameter("production_cd"));
 		
-		UserVo goodUserVo = userService.selectGoodsDetail(boardVo);
+		BoardVo goodUserVo = userService.selectGoodsDetail(boardVo);
 		
 		model.addAttribute("goodUserVo", goodUserVo);
 		

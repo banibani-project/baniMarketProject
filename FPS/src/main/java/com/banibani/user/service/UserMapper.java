@@ -18,6 +18,6 @@ public interface UserMapper {
 
 	int selectGoodsCount();
 
-	UserVo selectGoodsDetail(BoardVo boardVo);
+	BoardVo selectGoodsDetail(BoardVo boardVo);
 
 }
