@@ -16,6 +16,13 @@
 		function fnLoginCheck() {
 			$("#form1").submit();
 		}
+
+		//세션 테스트
+		function sessionCheck() {
+			let loginForm = document.querySelector('#login-form');
+			loginForm.action = '/login/sessionCheck'
+			loginForm.submit()
+		}
 	</script>
 </head>
 
