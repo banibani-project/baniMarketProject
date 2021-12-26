@@ -18,6 +18,7 @@ public class LoginServiceImpl implements LoginService {
 	@Autowired
 	private LoginDao loginDao;
 
+	// 아이디 중복체크 검사
 	@Override
 	public ModelMap selectOneUserIdChecked(LoginVo loginVo) {
 		String msg = "";
@@ -36,6 +37,7 @@ public class LoginServiceImpl implements LoginService {
 		return output_data;
 	}
 
+	// 회원가입
 	@Override
 	public ModelMap insertUserInfoCreate(LoginVo loginVo) {
 		String msg = "";
@@ -51,6 +53,7 @@ public class LoginServiceImpl implements LoginService {
 		// 암복화 로직
 		loginVo.setUser_password(BCrypt.hashpw(loginVo.getUser_password(), BCrypt.gensalt()));
 		System.out.println("User_password" + loginVo.getUser_password());
+		System.out.println("입력 데이터 : " + loginVo);
 
 		int resultCnt = loginDao.insertUserInfoCreate(loginVo);
 
