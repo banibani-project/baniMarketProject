@@ -61,7 +61,7 @@ public class UserController {
 		BoardVo boardVo = new BoardVo();
 		boardVo.setProduction_cd(request.getParameter("production_cd"));
 		
-		UserVo goodUserVo = userService.selectGoodsDetail(boardVo);
+		BoardVo goodUserVo = userService.selectGoodsDetail(boardVo);
 		
 		model.addAttribute("goodUserVo", goodUserVo);
 		
