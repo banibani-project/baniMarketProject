@@ -47,6 +47,13 @@ public class LoginController {
 	public ModelMap insertUserInfoCreate(@RequestBody LoginVo loginVo) {
 		return loginService.insertUserInfoCreate(loginVo);
 	}
+
+	// 21.12.31 유저 로그인
+	@PostMapping("/selectUserInfo.json")
+	@ResponseBody
+	public ModelMap selectUserInfo(@RequestBody LoginVo loginVo, HttpServletRequest req) {
+		return loginService.selectUserInfo(loginVo);
+	}
 	/**
 	 *
 	 * 작성일 : 2021. 12. 18.

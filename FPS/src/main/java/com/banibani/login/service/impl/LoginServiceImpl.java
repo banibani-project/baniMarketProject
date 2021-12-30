@@ -1,7 +1,6 @@
 package com.banibani.login.service.impl;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCrypt;
@@ -67,6 +66,35 @@ public class LoginServiceImpl implements LoginService {
 		output_data.put("msg", msg);
 		System.out.println("output_data : " + output_data);
 		return output_data;
+	}
+
+	// 로그인
+	@Override
+	public ModelMap selectUserInfo(LoginVo loginVo, HttpServletRequest req) {
+		int cpUserInfo;
+		String msg;
+		System.out.println("암복화 전 loginVo : " + loginVo);
+
+		// 들어온 데이터 암호화 비교
+		loginVo.setUser_password(BCrypt.hashpw(loginVo.getUser_password(), BCrypt.gensalt()));
+		System.out.println("암복화 후 loginVo : " + loginVo);
+
+		cpUserInfo = loginDao.selectUserInfo(loginVo);
+
+		// kakao 혹은 naver 로그인 제작시 추가 로직 필요
+		if(cpUserInfo == 1) {
+			msg = loginVo.getUser_name() + "님 환영합니다.";
+		} else if(cpUserInfo > 1) {
+			// 검색 카운트가 1이상일 때 중복자의 처리가 잘못된 것임으로 관리자의 개입이 필요하다.
+			msg = "문제가 발생하였습니다. \n관리자에게 문의 주세요.";
+		} else {
+			msg = "입력된 아이디 혹은 비밀번호가 틀립니다.";
+		}
+
+		ModelMap outputMsg = new ModelMap();
+		outputMsg.put("msg", msg);
+
+		return outputMsg;
 	};
 
 

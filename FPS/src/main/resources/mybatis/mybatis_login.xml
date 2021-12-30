@@ -53,4 +53,12 @@
 	)
 	</insert>
 
+
+	<select id="selectUserInfo" resultType="com.banibani.login.vo.LoginVo"  parameterType="integer">
+		SELECT COUNT(A.USER_ID) AS COUNT
+		FROM TBE_USER A
+			WHERE 1=1
+			AND USER_ID = #{user_id}
+			AND USER_PASSWORD = #{user_password}
+	</select>
 </mapper>
