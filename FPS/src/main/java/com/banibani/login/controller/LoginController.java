@@ -1,17 +1,20 @@
 package com.banibani.login.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.banibani.common.SessionManager;
 import com.banibani.login.service.LoginService;
 import com.banibani.login.vo.LoginVo;
 
@@ -22,17 +25,17 @@ public class LoginController {
 	@Autowired
 	private LoginService loginService;
 
-	//21.11.21 회원 가입 페이지
+	// 21.11.21 회원 가입 페이지
 	@GetMapping("/joinPage")
-    public String joinPage() {
-        return "/login/joinPage";
-    }
+	public String joinPage() {
+		return "/login/joinPage";
+	}
 
-	//21.11.21 로그인 페이지
+	// 21.11.21 로그인 페이지
 	@GetMapping("/loginPage")
-    public String postsSave() {
-        return "/login/loginPage";
-    }
+	public String postsSave() {
+		return "/login/loginPage";
+	}
 
 	// 21.12.12 유저아이디 중복체크
 	@PostMapping("/selectOneUserIdChecked.json")
@@ -54,29 +57,37 @@ public class LoginController {
 	public ModelMap selectUserInfo(@RequestBody LoginVo loginVo, HttpServletRequest req) {
 		return loginService.selectUserInfo(loginVo);
 	}
+
 	/**
 	 *
-	 * 작성일 : 2021. 12. 18.
-	 * 작성자 : jubs
-	 * parm :vo,req
-	 * return :
+	 * 작성일 : 2021. 12. 18. 작성자 : jubs parm :vo,req return :
 	 */
 	@PostMapping("/loginCheck")
-	//@ResponseBody
-	public String loginTest(LoginVo loginVo, HttpServletRequest request) {
-		HttpSession session = request.getSession();
-		session.setAttribute("userId", loginVo.getUser_id());
-		session.setAttribute("userInfo", loginVo);
+	// @ResponseBody
+	public String loginTest(LoginVo loginFrm, HttpServletRequest request, BindingResult bindingResult,
+			HttpServletResponse response) {
+		if (loginFrm == null) {
+			return "home";
+		}
+		ModelMap loginMember = loginService.selectUserInfo(loginFrm, request);
+		// TODO modelMap 에 사용자 아이디랑 이름 넣어주세용
+		SessionManager sessionManager = new SessionManager();
+		sessionManager.createSession(loginMember, response);
+		return "main";
 
+	}
 
-		return "/login/loginPage";
+	@PostMapping("/logout")
+	public String logoutV3(HttpServletResponse response, HttpServletRequest request) {
+		HttpSession session = request.getSession(false);
+		if (session != null) {
+			session.invalidate();
+		}
+		return "main";
 	}
 
 	/**
-	 * 작성일 : 2021. 12. 18.
-	 * 작성자 : jubs
-	 * parm : request
-	 * return :  null
+	 * 작성일 : 2021. 12. 18. 작성자 : jubs parm : request return : null
 	 */
 	@GetMapping("/sessionCheck")
 	public ModelMap sessionCheck(HttpServletRequest request) {
