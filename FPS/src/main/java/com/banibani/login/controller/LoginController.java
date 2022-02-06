@@ -25,17 +25,17 @@ public class LoginController {
 	@Autowired
 	private LoginService loginService;
 
-	//21.11.21 회원 가입 페이지
+	// 21.11.21 회원 가입 페이지
 	@GetMapping("/joinPage")
-    public String joinPage() {
-        return "/login/joinPage";
-    }
+	public String joinPage() {
+		return "/login/joinPage";
+	}
 
-	//21.11.21 로그인 페이지
+	// 21.11.21 로그인 페이지
 	@GetMapping("/loginPage")
-    public String postsSave() {
-        return "/login/loginPage";
-    }
+	public String postsSave() {
+		return "/login/loginPage";
+	}
 
 	// 21.12.12 유저아이디 중복체크
 	@PostMapping("/selectOneUserIdChecked.json")
@@ -57,14 +57,13 @@ public class LoginController {
 	public ModelMap selectUserInfo(@RequestBody LoginVo loginVo, HttpServletRequest req) {
 		return loginService.selectUserInfo(loginVo);
 	}
+
 	/**
 	 *
-	 * 작성일 : 2021. 12. 18.
-	 * 작성자 : jubs
-	 * parm :vo,req
-	 * return :
+	 * 작성일 : 2021. 12. 18. 작성자 : jubs parm :vo,req return :
 	 */
 	@PostMapping("/loginCheck")
+	// @ResponseBody
 	public String loginTest(LoginVo loginFrm, HttpServletRequest request, BindingResult bindingResult,
 			HttpServletResponse response) {
 		if (loginFrm == null) {
@@ -75,14 +74,20 @@ public class LoginController {
 		SessionManager sessionManager = new SessionManager();
 		sessionManager.createSession(loginMember, response);
 		return "main";
+	}
+
+	@PostMapping("/logout")
+	public String logoutV3(HttpServletResponse response, HttpServletRequest request) {
+		HttpSession session = request.getSession(false);
+		if (session != null) {
+			session.invalidate();
+		}
+		return "main";
 
 	}
 
 	/**
-	 * 작성일 : 2021. 12. 18.
-	 * 작성자 : jubs
-	 * parm : request
-	 * return :  null
+	 * 작성일 : 2021. 12. 18. 작성자 : jubs parm : request return : null
 	 */
 	@GetMapping("/sessionCheck")
 	public String sessionCheck(HttpServletRequest request,HttpServletResponse respons) {
