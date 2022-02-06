@@ -74,7 +74,6 @@ public class LoginController {
 		SessionManager sessionManager = new SessionManager();
 		sessionManager.createSession(loginMember, response);
 		return "main";
-
 	}
 
 	@PostMapping("/logout")
@@ -84,16 +83,17 @@ public class LoginController {
 			session.invalidate();
 		}
 		return "main";
+
 	}
 
 	/**
 	 * 작성일 : 2021. 12. 18. 작성자 : jubs parm : request return : null
 	 */
 	@GetMapping("/sessionCheck")
-	public ModelMap sessionCheck(HttpServletRequest request) {
+	public String sessionCheck(HttpServletRequest request,HttpServletResponse respons) {
 		HttpSession session = request.getSession();
-
-		return null;
+		session.invalidate();
+		return "/main";
 	}
 
 }
