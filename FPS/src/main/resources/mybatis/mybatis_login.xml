@@ -16,8 +16,9 @@
 
 	<!-- user_create-->
 	<select id="selectUserInfoSequence" resultType="com.banibani.login.vo.LoginVo" parameterType="String">
-		SELECT LPAD(NVL(MAX(A.USER_CD), 0)+1 ,5 ,'0')
-		FROM TBE_USER A
+		SELECT LPAD(NVL((SELECT COUNT(A.USER_CD) AS CNT
+				from tbe_user A), 0)+1 ,5 ,'0')
+		FROM TBE_USER B
 	</select>
 
 	<insert id="insertUserInfoCreate">
@@ -28,9 +29,13 @@
 	    , USER_NAME
 	    , USER_USETODAY
 	    , USER_PHONE
+	    , USER_PHONE_CHECK
 	    , USER_AGE
+	    , USER_ZIP_CODE
 	    , USER_ADDRESS
 	    , USER_TYPE_CODE
+	    , USER_SEX
+	    , USER_DATE
 	) VALUES (
 	    #{user_cd}
 	    , #{user_id}
@@ -38,10 +43,22 @@
 	    , #{user_name}
 	    , '1'
 	    , #{user_phone}
+	    , 'Y'
 	    , #{user_age}
+	    , #{user_zip_code}
 	    , #{user_address}
 	    , #{user_type_code}
+	    , #{user_sex}
+	    , #{user_date}
 	)
 	</insert>
 
+
+	<select id="selectUserInfo" resultType="com.banibani.login.vo.LoginVo"  parameterType="integer">
+		SELECT COUNT(A.USER_ID) AS COUNT
+		FROM TBE_USER A
+			WHERE 1=1
+			AND USER_ID = #{user_id}
+			AND USER_PASSWORD = #{user_password}
+	</select>
 </mapper>

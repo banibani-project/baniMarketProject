@@ -1,7 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.banibani.user.service.UserMapper">
-	<select id="selectGoodsList" parameterType="com.banibani.user.vo.UserVo" resultType="com.banibani.user.vo.UserVo"> 
+	<select id="selectGoodsList" parameterType="com.banibani.board.vo.BoardVo" resultType="com.banibani.board.vo.BoardVo"> 
+		SELECT 
+			T_PRO.PRODUCTION_CD,
+			T_PRO.PRODUCTION_TITLE,
+			T_PRO.PRODUCTION_CONTENT,
+			T_PRO.PRODUCTION_TYPE,
+			T_PRO.USE_YN,
+			T_PRO.END_DTTM,
+			T_PRO.UPT_DTTM,
+			T_PRO.USER_CD,
+			T_PRO.PRODUCTION_COST,
+			T_PRO.PRODUCTION_X,
+			T_PRO.PRODUCTION_Y,
+			(SELECT COUNT(*) FROM TBE_LIKE T_LIKE WHERE T_LIKE.USE_YN = 'Y' AND T_LIKE.PRODUCTION_CD = T_PRO.PRODUCTION_CD) AS LIKE_COUNT,
+      		(SELECT COUNT(*) FROM TBE_COMMENT T_COM WHERE T_COM.USE_YN = 'Y' AND T_COM.PRODUCTION_CD = T_PRO.PRODUCTION_CD) AS COMMENT_COUNT,
+          	CONCAT(T_FILE.FILE_PATH,T_FILE.FILE_REAL_NM,T_FILE.FILE_EX) AS FILE_WHOLE
+		FROM TBE_PRODUCTION T_PRO
+			LEFT JOIN TBE_FILE_PRODUCTION T_FILE ON T_PRO.PRODUCTION_CD = T_FILE.PRODUCTION_CD AND T_FILE.FILE_ORDER = 1 AND T_FILE.USE_YN = 'Y'
+		<if test='type_list eq "P"'>
+			ORDER BY (SELECT COUNT(*) FROM TBE_LIKE T_LIKE WHERE T_LIKE.USE_YN = 'Y' AND T_LIKE.PRODUCTION_CD = T_PRO.PRODUCTION_CD) DESC
+		</if>
+		<if test='type_list eq "H"'>
+			ORDER BY T_PRO.PRODUCTION_CD*1 DESC
+		</if>
+		limit #{startLimit},#{limitSize}
+	</select>
+	
+	<select id="selectGoodsCount" resultType="Integer"> 
+		SELECT COUNT(*) FROM TBE_PRODUCTION
+	</select>
+	
+	<select id="selectGoodsDetail" parameterType="com.banibani.board.vo.BoardVo" resultType="com.banibani.board.vo.BoardVo"> 
 		SELECT 
 			PRODUCTION_CD,
 			PRODUCTION_TITLE,
@@ -15,11 +46,6 @@
 			PRODUCTION_X,
 			PRODUCTION_Y
 		FROM TBE_PRODUCTION
-		ORDER BY PRODUCTION_CD DESC
-		limit #{startLimit},#{limitSize}
-	</select>
-	
-	<select id="selectGoodsCount" resultType="Integer"> 
-		SELECT COUNT(*) FROM TBE_PRODUCTION
+		WHERE PRODUCTION_CD = #{production_cd}
 	</select>
 </mapper>

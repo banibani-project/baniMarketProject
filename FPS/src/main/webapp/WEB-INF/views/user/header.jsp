@@ -1,4 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!-- 21.12.09 공통 js 정리 -->
+<script type="text/javascript" src="/static/js/common.js"></script>
+
 	<header id="fixed-bar">
         <div id="fixed-bar-wrap">
             <h1 class="fixed-bar-logo">

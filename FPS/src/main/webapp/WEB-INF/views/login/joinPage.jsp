@@ -70,23 +70,34 @@
 					xhr.setRequestHeader(header, token);
 				}
 				, success : function(output_data) {
+					// TextSetting
+					for (var i = 0; i < 3; i++) {
+			 			 clearTimeout(i);
+					}
+
 					// 성공시 데이터 분할
 					if(output_data.msg == "success") {
-						msg = "사용가능한 아이디 입니다.";
+						$('#ex_id').text('사용 가능한 아이디입니다.')
+						$('#ex_id').removeClass('error');
+						$('#ex_id').addClass('correct');
 						userChecked = true;
 					} else {
-						msg = "사용이 불가능한 아디입니다.";
+						$('#ex_id').text('이미 존재하는 아이디입니다.')
+						$('#ex_id').addClass('error');
+						$('#ex_id').removeClass('correct');
 					}
-					if(output_data.msg != null || output_data.msg != "") {
-						alert(msg);
-					}
-					$("#ex_id").val(msg);
+					var id_empty = setTimeout(TimeoutId, 3000);
 				}
 				, error : function(error) {
 					alert("error발생 \n관리자에게 문의해주세요.");
 				}
 			})
 		}
+	};
+
+	//TimeOutSetting
+	function TimeoutId() {
+		$('#ex_id').text('');
 	};
 
 	// address api iframe clase
@@ -152,18 +163,18 @@
 
 	// user_info_create
 	function userInfoCreate() {
-		var allDataYN 				= "N";																/* 데이터 체크 */
-		var passwordCheckYn			= "N";																/* 패스워드 재확인 */
-		var RegExpPhone				= /^01[0179]-\d{3,4}-\d{4}$/;										/* 핸드폰 정규식 */
-		var RegExpPassword			= /^.*(?=^.{8,20}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;		/* 패스워드 정규식 */
-		var RegExpDate				= /^(19|20)\d{2}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[0-1])$/		/* 날짜 정규식 */
-		var birthday 				= "";																/* 나이 확인 */
-		var passwrodChecked 		= "";																/* 패스워드 체크 */
-		var phoneMerzy				= "";																/* 핸드폰번호 병합 */
-		var nowDay 					= "";																/* 현재 날짜 */
-		var adressMerzy				= "";																/* 주소 병합 */
-		var date					= "";																/* 생년월일 병합 */
-		var passCount				= 0;																/* 통과 카운트 */
+		var allDataYN 				= "N";																		/* 데이터 체크 */
+		var passwordCheckYn			= "N";																		/* 패스워드 재확인 */
+		var RegExpPhone				= /^01[0179]-\d{3,4}-\d{4}$/;												/* 핸드폰 정규식 */
+		var RegExpPassword			= /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/;	/* 패스워드 정규식 */
+		var RegExpDate				= /^(19|20)\d{2}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[0-1])$/				/* 날짜 정규식 */
+		var birthday 				= "";																		/* 나이 확인 */
+		var passwrodChecked 		= "";																		/* 패스워드 체크 */
+		var phoneMerzy				= "";																		/* 핸드폰번호 병합 */
+		var nowDay 					= "";																		/* 현재 날짜 */
+		var adressMerzy				= "";																		/* 주소 병합 */
+		var date					= "";																		/* 생년월일 병합 */
+		var passCount				= 0;																		/* 통과 카운트 */
 
 		if(userChecked == true) {
 			passCount++;
@@ -182,7 +193,7 @@
 
 		if(passwordCheckYn == "Y") {
 			if( RegExpPassword.test($("#sign-pw").val()) == false ) {
-				alert("패스워드는 최소 8자리 최대는 20자리까지만 가능합니다.");
+				alert("패스워드는 최소 8자 및 최대 20자, 하나 이상의 대문자, 하나의 소문자, 하나의 숫자 및 하나의 특수 문자만 가능합니다.");
 				return;
 			} else {
 				passCount++;
@@ -243,9 +254,10 @@
 							, "user_password" 	: $("#sign-pw").val()
 							, "user_name" 		: $("#sign-name").val()
 							, "user_phone" 		: phoneMerzy
-							, "zip_code"		: $("#sign-addr1").val()
+							, "user_date"		: data
+							, "user_zip_code"	: $("#sign-addr1").val()
 							, "user_address" 	: adressMerzy
-							/* , "user_sex" 	:  프론트 요청 : 성별 부분이 생기면 데이터 추가 */
+							, "user_sex" 		: $('input[name="gender"]:checked').val()
 						})
 				, dataType : "json"
 				, contentType :"application/json"
@@ -258,9 +270,7 @@
 					} else {
 						msg = "회원가입이 거부되었습니다. \n관리자에게 문의주세요.";
 					}
-
 					alert(msg);
-
 				}
 				, error : function(error) {
 					alert("error발생 \n관리자에게 문의해주세요.");
@@ -294,6 +304,14 @@
 					<input type="number" id="phone2" name="phone2" class="sign-design sign-phone" max="9999" value="" oninput="maxLengthCheck(this, 4);">
 					<span class="phone-mid">-</span>
 					<input type="number" id="phone3" name="phone3" class="sign-design sign-phone" max="9999" value="" oninput="maxLengthCheck(this, 4);">
+				</div>
+
+				<h3>성별</h3>
+				<div>
+					<input type="radio" name="gender" id="gender_male" value='M' checked="checked">
+					<label for="gender_male" class="male_chk">남성</label>
+					<input type="radio" name="gender" id="gender_female" value='W'>
+					<label for="gender_female" class="female_chk">여성</label>
 				</div>
 
 				<h3>생년월일</h3>

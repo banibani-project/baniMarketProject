@@ -8,12 +8,14 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.banibani.board.vo.BoardVo;
 import com.banibani.user.service.UserSerivce;
 import com.banibani.user.vo.UserVo;
 
@@ -35,15 +37,16 @@ public class UserController {
 	@ResponseBody
 	public Map<String, Object> selectGoodsListPs(HttpServletRequest request) throws Exception{
 		Map<String, Object> result = new HashMap();
-		
-		int totalCount = userService.selectGoodsCount();
+		//int totalCount = userService.selectGoodsCount();
 		
 		int page = 1;	if(request.getParameter("page")!=null) {page = Integer.valueOf(request.getParameter("page"));}
-		UserVo userVo = new UserVo();
-		userVo.setStartLimit((page-1)*8);
-		userVo.setLimitSize(8);
+		BoardVo boardVo = new BoardVo();
+		String typeList = "";	if(request.getParameter("type_list")!=null) {typeList = request.getParameter("type_list");}
+		boardVo.setType_list(typeList);
+		boardVo.setStartLimit((page-1)*8);
+		boardVo.setLimitSize(8);
 		
-		List<UserVo> goodList = userService.selectGoodsList(userVo);
+		List<BoardVo> goodList = userService.selectGoodsList(boardVo);
 		// 응답 데이터 셋팅
         result.put("goodList", goodList);
         
@@ -53,7 +56,14 @@ public class UserController {
 	
 	//21.12.02_존_사용자 페이지 > 특정 상품 페이지
 	@GetMapping("/userDetail")
-    public String userDetail() {
+    public String userDetail(HttpServletRequest request,Model model) {
+		BoardVo boardVo = new BoardVo();
+		boardVo.setProduction_cd(request.getParameter("production_cd"));
+		
+		BoardVo goodUserVo = userService.selectGoodsDetail(boardVo);
+		
+		model.addAttribute("goodUserVo", goodUserVo);
+		
         return "/user/userDetail";
     }
 	

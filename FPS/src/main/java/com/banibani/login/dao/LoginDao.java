@@ -14,6 +14,8 @@ public interface LoginDao {
 	String selectUserInfoSequence();
 	int insertUserInfoCreate(LoginVo loginVo);
 
+	int selectUserInfo(LoginVo loginVo);
+
 
 
 }

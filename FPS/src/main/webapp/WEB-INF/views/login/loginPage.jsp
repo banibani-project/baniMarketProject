@@ -16,6 +16,19 @@
 		function fnLoginCheck() {
 			$("#form1").submit();
 		}
+
+		// 세션 테스트
+		function sessionCheck() {
+			let loginForm = document.querySelector('#login-form');
+			loginForm.action = '/login/sessionCheck'
+			loginForm.submit()
+		}
+
+		function joinUsCreate() {
+			location.href= '/login/joinPage';
+			location.submit();
+		}
+
 	</script>
 </head>
 
@@ -29,6 +42,7 @@
 				<input type="password" id="login-pw" class="login-design" placeholder="비밀번호">
 				<input type="checkbox" id="login-keep" value="Y"> <label for="login-keep">로그인 유지</label>
 				<input type="submit" id="login-bt" class="login-design" value="로그인">
+				<input type="button" id="join-bt" class="login-design" onclick="joinUsCreate();" value="회원가입">
 
 				<a href="#" class="login-sns"><img src="../static/images/login_kakao.png">카카오톡으로 로그인</a>
 				<a href="#" class="login-sns"><img src="../static/images/login_naver.png">네이버로 로그인</a>
