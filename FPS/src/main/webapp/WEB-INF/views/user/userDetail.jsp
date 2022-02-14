@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/static/css/userDetail.css">
+    <link rel="stylesheet" href="/static/css/main.css">
     <title>${requestScope.subPage.title}</title>
 </head>
 <body>
@@ -33,7 +33,6 @@
                     </li>
                 </ul>
                 <div class="btns" id="next">
-                    <!-- i 태그 안에 있는 class는 이름 변경 불가 -->
                     <i class="fa fa-arrow-right"></i>
                 </div>
                 <div class="btns" id="prev">
@@ -77,29 +76,47 @@
                 </div>
             </section>
             <section id="main_ctnt">
-                <h1 id="section_title">판매 물품 제목</h1>
+                <h2 id="section_title">판매 물품 제목</h2>
                 <p class="category">
                     제품 종류 •
-                    <time datetime="">n시간 전</time>
+                    <time datetime="">n</time>시간 전
                 </p>
                 <p class="price">
                     제품 가격(원)
                 </p>
                 <div class="contents">
                     <p>
-                        제품 설명<br>
+                        <%--제품 설명<br>
                         하자 없고 산지 얼마 안됐습니다<br>
                         직거래만 원해요<br>
-                        연락주세요
+                        연락주세요--%>
+                        ${goodUserVo.production_content }
                     </p>
                 </div>
-                <p class="ctnt_counts">
-                    관심 0 • 채팅 0 • 조회 0
-                </p>
+            </section>
+            <section id="main_cmt">
+                <div id="cmt_wrap">
+                    <form id="cmt_frm" action="" method="post">
+                        <h2 id="cmt_title">Comment</h2>
+                        <div class="comment-count">
+                            관심 0 • 댓글 <span id="count">0</span> • 조회 0
+                        </div>
+                        <div id="comments"></div>
+                        <div id="cmt_content">
+                            <textarea name="cmt_comment" id="comment-input" placeholder="댓글을 입력하세요."></textarea>
+                        </div>
+                        <label class="cmt_secret">
+                            비밀 댓글 
+                            <input type="checkbox" id="cmt_hide" value="비밀 댓글">
+                        </label>
+                        <input type="button" id="submit" value="댓글 남기기">
+                    </form>
+                </div>
             </section>
         </article>
     </div>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-   <script src="/static/js/userDeailt.js?v=1.0"></script>
+   <script src="/static/js/userDetail.js"></script>
+   <script src="/static/js/comment.js"></script>
 </body>
 </html>
