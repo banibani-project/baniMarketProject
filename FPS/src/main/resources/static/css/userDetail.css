@@ -14,7 +14,7 @@ html, body{ font-family: 'Anton', sans-serif; color: #212529; }
 	position: relative;
 }
 #main_wrap{
-	margin: 0 auto;
+	width: 100%;
 }
 
 /* slide show */
@@ -30,8 +30,6 @@ html, body{ font-family: 'Anton', sans-serif; color: #212529; }
 }
 
 #slider_wrap > ul#slider{
-	width: 800px;
-	height: 100%;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -41,7 +39,7 @@ html, body{ font-family: 'Anton', sans-serif; color: #212529; }
 	float: left;
 	position: relative;
 	width: 800px;
-	height: 500px;
+	height: 600px;
 }
 #slider_wrap > ul#slider > .slider_item > div{
 	margin: 30px;
@@ -126,12 +124,8 @@ html, body{ font-family: 'Anton', sans-serif; color: #212529; }
 }
 
 /* 프로필 */
-#profile{
-	width: 100%;
-	height: 100%;
-}
 #profile_link{
-	width: 600px;
+	width: 700px;
 	margin: 0 auto;
 }
 #profile_link > a{
@@ -221,7 +215,7 @@ html, body{ font-family: 'Anton', sans-serif; color: #212529; }
 #main_ctnt{
 	margin: 0 auto;
 	padding: 32px 0;
-	width: 600px;
+	width: 700px;
 	border-bottom: 1px solid #e9ecef;
 }
 #main_ctnt > #section_title{
@@ -243,19 +237,75 @@ html, body{ font-family: 'Anton', sans-serif; color: #212529; }
 	line-height: 1.76;
 	letter-spacing: -0.6px;
 }
-#main_ctnt > .contents{
+
+/* comment */
+#main_cmt{
+	position: relative;
+}
+#cmt_wrap{
+	width: 700px;
+	margin: 0 auto;
+}
+#cmt_frm{
+	position: relative;
+	padding-bottom: 5rem;
+}
+#cmt_frm > #cmt_title{
+	font-size: 15px;
+}
+#cmt_frm > .comment-count{
 	margin: 8px 0 16px;
 }
-#main_ctnt > .contents > p{
+#cmt_frm > .comment-count {
 	font-size: 17px;
 	line-height: 1.6;
 	letter-spacing: -0.6px;
 	margin: 16px 0;
 	word-break: break-all;
 }
-#main_ctnt > .ctnt_counts{
+#cmt_frm > .comment-count{
 	font-size: 13px;
 	line-height: 1.46;
 	letter-spacing: -0.6px;
 	color: #868e96;
 }
+#cmt_frm > #comments{
+	
+}
+#cmt_frm > #cmt_content{
+	padding-bottom: 10px;
+	overflow-x: hidden;
+}
+#cmt_frm > #cmt_content > #comment-input{
+	width: 95%;
+	height: 4rem;
+	vertical-align: top;
+	border: 1px solid #e1e1e1;
+	font-size: 15px;
+	padding: 13px 15px;
+	font-family: inherit;
+
+}
+#cmt_frm > .cmt_secret{
+	font-size: 14px;
+	padding-left: 15px;
+}
+#cmt_frm > input[type=button]{
+	position: absolute;
+	right: 0;
+	padding: 10px;
+	background-color: rgb(248, 33, 237);
+	color: #fff;
+	border: none;
+	border-radius: 10%;
+	cursor: pointer;
+}
+#cmt_frm > input[type=button]:hover{
+	background-color: rgba(248, 33, 237, 0.8);
+}
+
+.eachComment{ width :95%; margin: 10px; padding: 0.5em; border-bottom: 1px solid #c1bcba; }
+.eachComment .name{ font-size: 16px; font-weight: bold; margin-bottom: 0.3em; display: flex; justify-content: space-between; }
+.eachComment .inputValue{ font-size: 13px; }
+.eachComment .time{ font-size: 0.7em; color: #8f8e8e; font-style: oblique; margin:0.5em 0 0.5em; }
+.eachComment .deleteComment{ background-color: red; color: aliceblue; }
