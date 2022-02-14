@@ -24,6 +24,7 @@ public class FpsApplication {
     @RequestMapping(value="/main.do")
     @ResponseBody
     public String openMain() {
+
     	return "main";
     }
 

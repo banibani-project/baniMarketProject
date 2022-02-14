@@ -11,61 +11,63 @@
     <title>${requestScope.subPage.title}</title>
 </head>
 <body>
-    <div id="sub-main">
-        <article id="main-wrap">
-            <section id="slider-wrap">
+    <div id="sub_main">
+        <article id="main_wrap">
+            <section id="slider_wrap">
                 <h1 class="hidden">중고 상품 팔아요</h1>
                 <ul id="slider">
-                    <li class="slider-item">
+                    <li class="slider_item">
                         <div>제품 이미지</div>
                     </li>
-                    <li class="slider-item">
+                    <li class="slider_item">
                         <div>제품 이미지</div>
                     </li>
-                    <li class="slider-item">
+                    <li class="slider_item">
                         <div>제품 이미지</div>
                     </li>
-                    <li class="slider-item">
+                    <li class="slider_item">
                         <div>제품 이미지</div>
                     </li>
-                    <li class="slider-item">
+                    <li class="slider_item">
                         <div>제품 이미지</div>
                     </li>
                 </ul>
                 <div class="btns" id="next">
                     <i class="fa fa-arrow-right"></i>
                 </div>
-                <div class="btns" id="prev"><i class="fa fa-arrow-left"></i></div>
+                <div class="btns" id="prev">
+                    <i class="fa fa-arrow-left"></i>
+                </div>
                 <div id="counter"></div>
-                <div id="pagination-wrap">
+                <div id="pagination_wrap">
                     <ul></ul>
                 </div>
             </section>
 
             <section id="profile">
-                <div id="profile-link">
+                <div id="profile_link">
                     <a href="#">
                         <h3 class="hidden">프로필</h3>
-                        <div class="profile-space-between">
+                        <div class="profile_space_between">
                             <div>
-                                <div class="profile-image">
+                                <div class="profile_image">
                                     <img src="https://d1unjqcospf8gs.cloudfront.net/assets/users/default_profile_80-7e50c459a71e0e88c474406a45bbbdce8a3bf2ed4f2efcae59a064e39ea9ff30.png" alt="프로필 사진">
                                 </div>
-                                <div class="profile-left">
-                                    <div class="nick-name">닉네임</div>
-                                    <div class="region-name">대구시 수성구 만촌동</div>
+                                <div class="profile_left">
+                                    <div class="nick_name">닉네임</div>
+                                    <div class="region_name">대구시 수성구 만촌동</div>
                                 </div>
                             </div>
-                            <div class="profile-right">
-                                <dl class="temperatrue-wrap">
+                            <div class="profile_right">
+                                <dl class="temperatrue_wrap">
                                     <dt>매너온도</dt>
-                                    <dd class="text-color-01">
+                                    <dd class="text_color_01">
                                         36.6
                                         <span>&deg;C</span>
                                     </dd>
                                 </dl>
                                 <div class="meters">
-                                    <div class="bar bar-color-01"></div>
+                                    <div class="bar bar_color_01"></div>
                                 </div>
                                 <div class="face"></div>
                             </div>
@@ -73,31 +75,49 @@
                     </a>
                 </div>
             </section>
-            <section id="title-ctnt">
-                <h1 id="section-title">판매 물품 제목</h1>
+            <section id="main_ctnt">
+                <h2 id="section_title">판매 물품 제목</h2>
                 <p class="category">
                     제품 종류 •
-                    <time datetime="">n시간 전</time>
+                    <time datetime="">n</time>시간 전
                 </p>
-                <p class="section-price">
+                <p class="price">
                     제품 가격(원)
                 </p>
-                <div class="section-ctnt">
+                <div class="contents">
                     <p>
-                        <!-- 제품 설명<br>
+                        <%--제품 설명<br>
                         하자 없고 산지 얼마 안됐습니다<br>
                         직거래만 원해요<br>
-                        연락주세요 -->
+                        연락주세요--%>
                         ${goodUserVo.production_content }
                     </p>
                 </div>
-                <p class="section-counts">
-                    관심 0 • 채팅 0 • 조회 0
-                </p>
+            </section>
+            <section id="main_cmt">
+                <div id="cmt_wrap">
+                    <form id="cmt_frm" action="" method="post">
+                        <h2 id="cmt_title">Comment</h2>
+                        <div class="comment-count">
+                            관심 0 • 댓글 <span id="count">0</span> • 조회 0
+                        </div>
+                        <div id="comments"></div>
+                        <div id="cmt_content">
+                            <textarea name="cmt_comment" id="comment-input" placeholder="댓글을 입력하세요."></textarea>
+                        </div>
+                        <label class="cmt_secret">
+                            비밀 댓글 
+                            <input type="checkbox" id="cmt_hide" value="비밀 댓글">
+                        </label>
+                        <input type="button" id="submit" value="댓글 남기기">
+                    </form>
+                </div>
             </section>
         </article>
     </div>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-   <script src="/static/js/main.js"></script>
+   <script src="/static/js/userDetail.js"></script>
+   <script src="/static/js/comment.js"></script>
+   
 </body>
 </html>
