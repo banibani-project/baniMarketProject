@@ -12,6 +12,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class WebMvcConfig implements WebMvcConfigurer {
 
 	@Autowired
+//	private SessionInterceptor sessionInterceptor;
 	private SessionInterceptor sessionInterceptor;
 
 	/**
@@ -21,9 +22,12 @@ public class WebMvcConfig implements WebMvcConfigurer {
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		// TODO Auto-generated method stub
-		registry.addInterceptor(sessionInterceptor).addPathPatterns("/**").excludePathPatterns("/static/css/**")
-				.excludePathPatterns("/static/images/**").excludePathPatterns("/static/js/**");
-
+		registry.addInterceptor(sessionInterceptor)
+				.addPathPatterns("/user/**")
+				.excludePathPatterns("/static/css/**")
+				.excludePathPatterns("/static/images/**")
+				.excludePathPatterns("/static/js/**")
+				.excludePathPatterns("/login/**");
 	}
 
 	// 21.12.19 외부 이미지 접근을 위해 생성
@@ -38,9 +42,5 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
 	}
 
-	@Bean
-	public LoginInterceptor loginInterceptor() {
-		return new LoginInterceptor();
-	}
 
 }
